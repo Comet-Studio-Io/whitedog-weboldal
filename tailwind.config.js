@@ -9,6 +9,12 @@ module.exports = {
       fontFamily: {
         primary: ["Oracle", "regular"],
       },
+      colors: {
+        primary_gray: "#E1E1E1",
+        text_gray: "#3C3B3B",
+        text_gray_light: "#9C9D9C",
+        text_gray_dark: "#696969",
+      }
     },
   },
   plugins: [],
