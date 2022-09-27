@@ -11,9 +11,7 @@ export const DefaultLayout: FC<DefaultLayoutTypes> = ({ children }) => {
   return (
     <>
       <Header />
-      <main className="min-h-screen flex items-center bg-black flex-col">
-        {children}
-      </main>
+      <main className="h-auto flex items-center flex-col">{children}</main>
       <Footer />
     </>
   );
