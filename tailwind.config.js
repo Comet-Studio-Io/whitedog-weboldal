@@ -7,13 +7,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        primary: ["Oracle", "regular"],
+        'primary': ['Oracle'],
       },
       colors: {
-        primary_gray: "#E1E1E1",
-        text_gray: "#3C3B3B",
-        text_gray_light: "#9C9D9C",
-        text_gray_dark: "#696969",
+        'primary-gray': '#E1E1E1',
+        'text-gray-regular': '#3C3B3B',
+        'text-gray-light': '#9C9D9C',
+        'text-gray-dark': '#696969',
       }
     },
   },
