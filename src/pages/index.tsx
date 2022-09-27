@@ -1,12 +1,14 @@
 import type { NextPage } from "next";
 
-import { HeroSection } from "../components/heroSection/heroSection";
 import { DefaultLayout } from "../components/layouts/defaultLayout";
+import { HeroSection } from "../components/pages/landingPage/heroSection";
+import { LandingPageContent } from "../components/pages/landingPage/landingPageContent";
 
 const Home: NextPage = () => {
   return (
     <DefaultLayout>
       <HeroSection />
+      <LandingPageContent />
     </DefaultLayout>
   );
 };
