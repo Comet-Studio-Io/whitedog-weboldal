@@ -11,9 +11,9 @@ module.exports = {
       },
       colors: {
         'primary-gray': '#E1E1E1',
-        'text-gray-regular': '#3C3B3B',
+        'text-gray-regular': '#696969',
+        'text-gray-dark': '#3C3B3B',
         'text-gray-light': '#9C9D9C',
-        'text-gray-dark': '#696969',
       }
     },
   },
