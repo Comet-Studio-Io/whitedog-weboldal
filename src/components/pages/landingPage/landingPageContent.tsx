@@ -1,12 +1,20 @@
-import { memo, FC } from "react";
+import { useRouter } from "next/router";
+import { memo, FC, useCallback } from "react";
 import { isMobile } from "react-device-detect";
 
+import { Button } from "../../common/Button/Button";
 import { ProjectGrid } from "../../common/ProjectGrid/ProjectGrid";
 import { ProjectGridItem } from "../../common/ProjectGrid/ProjectGridItem";
 
 const LandingPageContentComponent: FC = () => {
+  const router = useRouter();
+
+  const handleProjectButtonClick = useCallback(async () => {
+    await router.push("/projects");
+  }, []);
+
   return (
-    <section className="flex flex-col justify-start items-start w-full h-auto md:px-8 px-2">
+    <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 pb-20">
       <div className="flex">
         <span className="text-white w-2/3 text-[1.75rem] py-6">
           {
@@ -15,9 +23,11 @@ const LandingPageContentComponent: FC = () => {
         </span>
       </div>
 
-      <span className="uppercase text-text-gray-light pt-14 pb-8">
-        {"Projektek"}
-      </span>
+      <div className="w-full text-left">
+        <span className="uppercase text-text-gray-light pt-14 pb-8">
+          {"Projektek"}
+        </span>
+      </div>
       {isMobile ? (
         <ProjectGrid columns={5} rows={15}>
           <ProjectGridItem
@@ -64,7 +74,7 @@ const LandingPageContentComponent: FC = () => {
           />
         </ProjectGrid>
       ) : (
-        <ProjectGrid columns={7} rows={22}>
+        <ProjectGrid columns={7} rows={21}>
           <ProjectGridItem
             colEnd={5}
             colStart={1}
@@ -113,6 +123,8 @@ const LandingPageContentComponent: FC = () => {
           />
         </ProjectGrid>
       )}
+      {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
+      <Button text="összes projekt" onClick={handleProjectButtonClick} />
     </section>
   );
 };
