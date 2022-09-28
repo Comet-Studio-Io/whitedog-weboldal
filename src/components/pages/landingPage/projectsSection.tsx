@@ -1,11 +1,12 @@
-import clsx from "clsx";
 import { useRouter } from "next/router";
 import { memo, FC, useCallback } from "react";
 
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
 import { Button } from "../../common/Button/Button";
+import { Description } from "../../common/Description/Description";
 import { ProjectGrid } from "../../common/ProjectGrid/ProjectGrid";
 import { ProjectGridItem } from "../../common/ProjectGrid/ProjectGridItem";
+import { Title } from "../../common/Title/Title";
 
 const ProjectsSectionComponent: FC = () => {
   const router = useRouter();
@@ -17,22 +18,15 @@ const ProjectsSectionComponent: FC = () => {
 
   return (
     <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 pb-20">
-      <div className="flex">
-        <span
-          className={clsx("text-white py-6", {
-            "text-[1.375rem]": deviceState === "mobile",
-            "text-[1.75rem] w-2/3": deviceState === "desktop",
-          })}
-        >
-          {
-            "Az ügyfeleknek valójában nem egyszerűen a brief alapján készülő kreatívokra, hanem üzleti problémájuk megoldására van szükségük — ezért mi kreatív, személyre szabott kommunikációs és üzletviteli megoldásokat nyújtunk számukra."
-          }
-        </span>
-      </div>
+      <Description
+        className="text-white lg:w-2/3"
+        text={
+          "Az ügyfeleknek valójában nem egyszerűen a brief alapján készülő kreatívokra, hanem üzleti problémájuk megoldására van szükségük — ezért mi kreatív, személyre szabott kommunikációs és üzletviteli megoldásokat nyújtunk számukra."
+        }
+      />
 
-      <div className="w-full text-left pt-20 pb-8">
-        <span className="uppercase text-text-gray-light">{"Projektek"}</span>
-      </div>
+      <Title className={"text-primary-gray"} text={"Projektek"} />
+
       {deviceState === "mobile" ? (
         <ProjectGrid columns={5} rows={15}>
           <ProjectGridItem
