@@ -2,6 +2,7 @@ import { GridItem } from "@chakra-ui/react";
 import Image from "next/image";
 import { FC, memo } from "react";
 
+import { ProjectGridTitle } from "./ProjectGridTitle";
 import { ProjectTag } from "./ProjectTag";
 
 interface ProjectGridItemTypes {
@@ -36,9 +37,7 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
       rowStart={rowStart}
     >
       <div className="w-full h-full relative">
-        <span className="text-white text-opacity-[72%] relative md:top-4 md:px-4 top-3 px-3 uppercase z-10 md:text-2xl text-lg">
-          {title}
-        </span>
+        <ProjectGridTitle text={title} />
         <Image
           className="object-cover h-full rounded-xl"
           layout={"fill"}
