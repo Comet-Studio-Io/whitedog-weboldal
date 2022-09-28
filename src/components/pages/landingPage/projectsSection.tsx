@@ -7,14 +7,13 @@ import { Button } from "../../common/Button/Button";
 import { ProjectGrid } from "../../common/ProjectGrid/ProjectGrid";
 import { ProjectGridItem } from "../../common/ProjectGrid/ProjectGridItem";
 
-const LandingPageContentComponent: FC = () => {
+const ProjectsSectionComponent: FC = () => {
   const router = useRouter();
+  const deviceState = useGetUserAgent();
 
   const handleProjectButtonClick = useCallback(async () => {
     await router.push("/projects");
   }, []);
-
-  const deviceState = useGetUserAgent();
 
   return (
     <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 pb-20">
@@ -135,4 +134,4 @@ const LandingPageContentComponent: FC = () => {
   );
 };
 
-export const LandingPageContent = memo(LandingPageContentComponent);
+export const ProjectsSection = memo(ProjectsSectionComponent);
