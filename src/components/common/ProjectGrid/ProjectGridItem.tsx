@@ -34,7 +34,7 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
       rowStart={rowStart}
     >
       <div className="w-full h-full relative">
-        <span className="text-white text-opacity-[72%] relative top-4 px-4 uppercase z-10 text-2xl">
+        <span className="text-white text-opacity-[72%] relative md:top-4 md:px-4 top-3 px-3 uppercase z-10 md:text-2xl text-lg">
           {title}
         </span>
         <Image
@@ -43,14 +43,14 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
           src={imgSrc}
         />
         {tag1 !== undefined && (
-          <div className="py-2 px-4 bg-black bg-opacity-[48%] absolute bottom-4 left-4 rounded-full">
+          <div className="py-2 px-4 bg-black bg-opacity-[48%] absolute md:bottom-4 md:left-4 bottom-3 left-3 rounded-full">
             <span className="text-white text-opacity-[72%] capitalize z-10">
               {tag1}
             </span>
           </div>
         )}
         {tag2 !== undefined && (
-          <div className="py-2 px-4 bg-black bg-opacity-[48%] absolute bottom-4 left-[7.5rem] rounded-full">
+          <div className="py-2 px-4 bg-black bg-opacity-[48%] absolute md:bottom-4 bottom-3 left-[7.5rem] rounded-full">
             <span className="text-white text-opacity-[72%] capitalize z-10">
               {tag2}
             </span>
