@@ -5,7 +5,7 @@ import { HeaderLink } from "./HeaderLink";
 
 const HeaderComponent: FC = (): JSX.Element => {
   return (
-    <header className="h-12 justify-between w-full px-8 absolute items-center flex flex-row z-20">
+    <header className="h-12 justify-between w-full md:px-8 px-2 absolute items-center flex flex-row z-20">
       <Image
         alt="header-icon"
         height={24}

@@ -5,7 +5,7 @@ interface HeaderLinkTypes {
 }
 const HeaderLinkComponent: FC<HeaderLinkTypes> = ({ link }) => {
   return (
-    <a className="uppercase px-4 text-white opacity-50" href={link}>
+    <a className="uppercase md:px-4 px-2 text-white opacity-50" href={link}>
       {link}
     </a>
   );
