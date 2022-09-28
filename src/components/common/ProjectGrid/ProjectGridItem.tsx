@@ -2,6 +2,8 @@ import { GridItem } from "@chakra-ui/react";
 import Image from "next/image";
 import { FC, memo } from "react";
 
+import { ProjectTag } from "./ProjectTag";
+
 interface ProjectGridItemTypes {
   colSpan?: number;
   colStart?: number;
@@ -38,24 +40,14 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
           {title}
         </span>
         <Image
-          className={"object-fill rounded-xl"}
-          layout="fill"
+          className="object-cover h-full rounded-xl"
+          layout={"fill"}
           src={imgSrc}
         />
-        {tag1 !== undefined && (
-          <div className="py-2 px-4 bg-black bg-opacity-[48%] absolute md:bottom-4 md:left-4 bottom-3 left-3 rounded-full">
-            <span className="text-white text-opacity-[72%] capitalize z-10">
-              {tag1}
-            </span>
-          </div>
-        )}
-        {tag2 !== undefined && (
-          <div className="py-2 px-4 bg-black bg-opacity-[48%] absolute md:bottom-4 bottom-3 left-[7.5rem] rounded-full">
-            <span className="text-white text-opacity-[72%] capitalize z-10">
-              {tag2}
-            </span>
-          </div>
-        )}
+        <div className="absolute md:bottom-4 md:left-4 bottom-3 left-3 flex flex-row">
+          {tag1 !== undefined && <ProjectTag text={tag1} />}
+          {tag2 !== undefined && <ProjectTag text={tag2} />}
+        </div>
       </div>
     </GridItem>
   );
