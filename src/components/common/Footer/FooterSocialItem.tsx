@@ -12,7 +12,12 @@ const FooterSocialItemComponent: FC<FooterSocialItemTypes> = ({
 }) => {
   return (
     <a href={href}>
-      <Image height={20} src={src} width={20} />
+      <Image
+        className="hover:text-black text-text-gray-light fill-current duration-300 transition-all"
+        height={20}
+        src={src}
+        width={20}
+      />
     </a>
   );
 };
