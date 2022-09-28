@@ -38,10 +38,24 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
           {title}
         </span>
         <Image
-          className="object-cover w-full h-auto rounded-xl"
-          layout={"fill"}
+          className={"object-fill rounded-xl"}
+          layout="fill"
           src={imgSrc}
         />
+        {tag1 !== undefined && (
+          <div className="py-2 px-4 bg-black bg-opacity-[48%] absolute bottom-4 left-4 rounded-full">
+            <span className="text-white text-opacity-[72%] capitalize z-10">
+              {tag1}
+            </span>
+          </div>
+        )}
+        {tag2 !== undefined && (
+          <div className="py-2 px-4 bg-black bg-opacity-[48%] absolute bottom-4 left-[7.5rem] rounded-full">
+            <span className="text-white text-opacity-[72%] capitalize z-10">
+              {tag2}
+            </span>
+          </div>
+        )}
       </div>
     </GridItem>
   );
