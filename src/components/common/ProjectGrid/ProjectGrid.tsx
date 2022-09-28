@@ -16,7 +16,7 @@ const ProjectGridComponent: FC<ProjectGridTypes> = ({
 }) => {
   return (
     <Grid
-      className="w-full min-h-screen h-max pb-8"
+      className="w-full min-h-screen h-max pb-12"
       gap={12}
       templateColumns={`repeat(${columns}, 1fr)`}
       templateRows={`repeat(${rows}, ${rowHeight})`}
