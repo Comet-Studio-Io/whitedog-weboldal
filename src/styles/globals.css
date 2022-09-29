@@ -18,3 +18,14 @@ body {
   box-sizing: border-box;
   font-family: "Oracle";
 }
+
+.button-component {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border-radius: 50px;
+}
+.button-component:hover {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border-radius: 0px;
+}

@@ -8,14 +8,14 @@ interface ButtonTypes {
 }
 
 const ButtonComponent: FC<ButtonTypes> = ({
-  bg = "#ffffff",
-  color = "#000000",
+  bg = "white",
+  color = "black",
   text,
   onClick,
 }) => {
   return (
     <button
-      className={`px-8 py-4 rounded-full capitalize bg-[${bg}] text-[${color}]`}
+      className={`button-component px-8 py-4 capitalize bg-${bg} text-${color}`}
       type={"button"}
       onClick={onClick}
     >
