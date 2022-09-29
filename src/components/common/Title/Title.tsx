@@ -8,7 +8,7 @@ interface TitleTypes {
 
 const TitleComponent: FC<TitleTypes> = ({ text, className }) => {
   return (
-    <div className="w-full text-left pt-20 pb-8">
+    <div className="w-full text-left pt-14 pb-8">
       <span className={clsx(`uppercase`, className)}>{text}</span>
     </div>
   );
