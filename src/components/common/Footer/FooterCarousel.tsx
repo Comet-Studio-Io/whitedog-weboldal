@@ -1,3 +1,9 @@
+import AquaLorenzoIcon from "public/images/footer/aqua lorenzo.svg";
+import BankholdingIcon from "public/images/footer/BANKHOLDING.svg";
+import GallioIcon from "public/images/footer/GALLIO.svg";
+import HunguestIcon from "public/images/footer/hunguest.svg";
+import MKBIcon from "public/images/footer/MKB.svg";
+import TeamIcon from "public/images/footer/team.svg";
 import { memo, FC } from "react";
 
 import InfiniteCarouselLoop from "../InfiniteLoopCarousel/InfiniteLoopCarousel";
@@ -8,12 +14,12 @@ const FooterCarouselComponent: FC = () => {
   return (
     <div className="flex justify-center items-center flex-row h-auto w-full pb-20">
       <InfiniteCarouselLoop direction="left" durationInSeconds={50}>
-        <FooterCarouselItem src={"/images/footer/BANKHOLDING.svg"} />
-        <FooterCarouselItem src={"/images/footer/MKB.svg"} />
-        <FooterCarouselItem src={"/images/footer/hunguest.svg"} />
-        <FooterCarouselItem src={"/images/footer/gallio.svg"} />
-        <FooterCarouselItem src={"/images/footer/team.svg"} />
-        <FooterCarouselItem src={"/images/footer/aqua lorenzo.svg"} />
+        <FooterCarouselItem SVGIcon={BankholdingIcon} />
+        <FooterCarouselItem SVGIcon={MKBIcon} />
+        <FooterCarouselItem SVGIcon={HunguestIcon} />
+        <FooterCarouselItem SVGIcon={GallioIcon} />
+        <FooterCarouselItem SVGIcon={TeamIcon} />
+        <FooterCarouselItem SVGIcon={AquaLorenzoIcon} />
       </InfiniteCarouselLoop>
     </div>
   );
