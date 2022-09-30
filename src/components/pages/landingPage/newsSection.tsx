@@ -21,10 +21,10 @@ const NewsSectionComponent: FC = () => {
     <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 pb-20 bg-secondary">
       <Title className={"text-white"} text={"Aktualitások"} />
       <div className="flex flex-row w-full h-auto space-x-3 pb-8">
-        {navbarOptions.map((option, index) => {
+        {navbarOptions.map(option => {
           return (
             <NewsNavbarItem
-              key={index}
+              key={option}
               active={selectedSection === option}
               text={option}
               onClick={handleNavbarClick}
