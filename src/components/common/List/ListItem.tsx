@@ -2,7 +2,7 @@ import { Collapse } from "@chakra-ui/react";
 import clsx from "clsx";
 import { FC, memo, MouseEventHandler } from "react";
 
-interface ServiceItemTypes {
+interface ListItemTypes {
   title: string;
   data: string;
   active: boolean;
@@ -10,7 +10,7 @@ interface ServiceItemTypes {
   onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-const ServiceItemComponent: FC<ServiceItemTypes> = ({
+const ListItemComponent: FC<ListItemTypes> = ({
   title,
   data,
   active,
@@ -42,4 +42,4 @@ const ServiceItemComponent: FC<ServiceItemTypes> = ({
   );
 };
 
-export const ServiceItem = memo(ServiceItemComponent);
+export const ListItem = memo(ListItemComponent);
