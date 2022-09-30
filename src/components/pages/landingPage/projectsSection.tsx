@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { memo, FC, useCallback } from "react";
 
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
+import { webPaths } from "../../../webpaths";
 import { Button } from "../../common/Button/Button";
 import { Description } from "../../common/Description/Description";
 import { ProjectGrid } from "../../common/ProjectGrid/ProjectGrid";
@@ -13,7 +14,7 @@ const ProjectsSectionComponent: FC = () => {
   const deviceState = useGetUserAgent();
 
   const handleProjectButtonClick = useCallback(async () => {
-    await router.push("/projects");
+    await router.push(webPaths.projects);
   }, []);
 
   return (
