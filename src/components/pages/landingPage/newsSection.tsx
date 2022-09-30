@@ -1,8 +1,8 @@
 import { memo, FC, useState, useCallback, MouseEvent, useMemo } from "react";
 
 import { NewsNavbarTypes } from "../../../types/newsNavbarTypes";
-import { NewsNavbarItem } from "../../common/News/newsNavbarItem";
-import { NewsSlideshowItem } from "../../common/News/newsSlideshowItem";
+import { NewsNavbarItem } from "../../common/News/NewsNavbarItem";
+import { NewsSlideshowItem } from "../../common/News/NewsSlideshowItem";
 import { Title } from "../../common/Title/Title";
 
 const NewsSectionComponent: FC = () => {
