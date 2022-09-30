@@ -1,16 +1,20 @@
+import Link from "next/link";
 import { FC, memo } from "react";
 
 interface HeaderLinkTypes {
-  link: string;
+  href: string;
+  text: string;
 }
-const HeaderLinkComponent: FC<HeaderLinkTypes> = ({ link }) => {
+const HeaderLinkComponent: FC<HeaderLinkTypes> = ({ href, text }) => {
   return (
-    <a
-      className="uppercase md:px-4 px-2 text-white text-opacity-50 hover:text-opacity-100 transition-all duration-300"
-      href={link}
-    >
-      {link}
-    </a>
+    <Link passHref href={href}>
+      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+      <a>
+        <span className="uppercase text-white text-opacity-50 hover:text-opacity-100 transition-all duration-300">
+          {text}
+        </span>
+      </a>
+    </Link>
   );
 };
 
