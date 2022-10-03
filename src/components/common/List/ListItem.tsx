@@ -1,44 +1,62 @@
 import { Collapse } from "@chakra-ui/react";
 import clsx from "clsx";
-import { FC, memo, MouseEventHandler } from "react";
+import { FC, memo, useEffect, useRef, useState } from "react";
 
 interface ListItemTypes {
   title: string;
   data: string;
-  active: boolean;
   dark?: boolean;
-  onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-const ListItemComponent: FC<ListItemTypes> = ({
-  title,
-  data,
-  active,
-  dark = true,
-  onClick,
-}) => {
+const ListItemComponent: FC<ListItemTypes> = ({ title, data, dark = true }) => {
+  const textContainerRef = useRef<HTMLSpanElement>(null);
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", function () {
+      const distanceToTop =
+        textContainerRef.current?.getBoundingClientRect().top;
+
+      if (
+        distanceToTop !== undefined &&
+        textContainerRef.current?.clientHeight !== undefined
+      ) {
+        if (distanceToTop < window.innerHeight / 2 - 60) {
+          setIsActive(true);
+        } else if (distanceToTop > window.innerHeight / 2) {
+          setIsActive(false);
+        }
+      }
+    });
+  }, [textContainerRef.current]);
+
   return (
-    <button
-      className={clsx("md:text-[1.75rem] text-[1.375rem] w-full text-left", {
-        "text-black": active && dark,
-        "text-white": active && !dark,
-        "text-text-gray-light": !active,
-      })}
-      type="button"
-      value={title}
-      onClick={onClick}
+    <span
+      ref={textContainerRef}
+      className={clsx(
+        "md:text-[1.75rem] text-[1.375rem] w-full text-left transition-all duration-500",
+        {
+          "text-black": isActive && dark,
+          "text-white": isActive && !dark,
+          "text-text-gray-light": !isActive,
+        },
+      )}
     >
-      {active ? "" : title}
-      <Collapse animateOpacity in={active}>
-        {title + data}
-      </Collapse>
+      {isActive ? (
+        <span className="flex flex-row">
+          <Collapse in={isActive}>{title + data}</Collapse>
+        </span>
+      ) : (
+        <span>{title}</span>
+      )}
       <hr
         className={clsx("h-1 w-full border-t-2 border-solid my-4", {
-          "border-black": active,
-          "border-text-gray-light": !active,
+          "border-black": isActive,
+          "border-white": isActive && !dark,
+          "border-text-gray-light": !isActive,
         })}
       />
-    </button>
+    </span>
   );
 };
 
