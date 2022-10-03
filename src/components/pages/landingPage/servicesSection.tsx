@@ -1,4 +1,4 @@
-import { memo, FC, useState, useCallback, MouseEvent, useMemo } from "react";
+import { memo, FC, useMemo } from "react";
 
 import { ListItem } from "../../common/List/ListItem";
 import { Title } from "../../common/Title/Title";
@@ -47,15 +47,6 @@ const ServicesSectionComponent: FC = () => {
     [],
   );
 
-  const [selectedSection, setSelectedSection] = useState(servicesList[0].title);
-
-  const handleServiceItemClick = useCallback(
-    (e: MouseEvent<HTMLButtonElement>) => {
-      setSelectedSection(e.currentTarget.value);
-    },
-    [],
-  );
-
   return (
     <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 pb-20 bg-white">
       <Title className={"text-black"} text={"szolgáltatások"} />
@@ -63,10 +54,8 @@ const ServicesSectionComponent: FC = () => {
         return (
           <ListItem
             key={service.title}
-            active={selectedSection === service.title}
             data={service.data}
             title={service.title}
-            onClick={handleServiceItemClick}
           />
         );
       })}

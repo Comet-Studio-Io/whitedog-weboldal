@@ -1,18 +1,9 @@
-import { memo, FC, useState, useCallback, MouseEvent, useMemo } from "react";
+import { memo, FC, useMemo } from "react";
 
 import { ListItem } from "../../common/List/ListItem";
 import { Title } from "../../common/Title/Title";
 
 const OpenPositionsSectionComponent: FC = () => {
-  const [selectedSection, setSelectedSection] = useState("Account Manager");
-
-  const handleServiceItemClick = useCallback(
-    (e: MouseEvent<HTMLButtonElement>) => {
-      setSelectedSection(e.currentTarget.value);
-    },
-    [],
-  );
-
   const openPositionsList = useMemo(
     () => [
       {
@@ -38,11 +29,9 @@ const OpenPositionsSectionComponent: FC = () => {
         return (
           <ListItem
             key={service.title}
-            active={selectedSection === service.title}
             dark={false}
             data={service.data}
             title={service.title}
-            onClick={handleServiceItemClick}
           />
         );
       })}
