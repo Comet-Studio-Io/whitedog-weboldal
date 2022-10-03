@@ -1,5 +1,15 @@
-import { memo, FC, useState, useCallback, MouseEvent, useMemo } from "react";
+import {
+  memo,
+  FC,
+  useState,
+  useCallback,
+  MouseEvent,
+  useMemo,
+  useRef,
+} from "react";
+import { useDraggable } from "react-use-draggable-scroll";
 
+import useHorizontalScroll from "../../../hooks/useHorizontalScroll";
 import { NewsNavbarTypes } from "../../../types/newsNavbarTypes";
 import { NewsNavbarItem } from "../../common/News/NewsNavbarItem";
 import { NewsSlideshowItem } from "../../common/News/NewsSlideshowItem";
@@ -17,6 +27,82 @@ const NewsSectionComponent: FC = () => {
     return ["Összes", "Díjak", "Publikációk", "Sajtómegjelenések"];
   }, []);
 
+  const newsItemsList = useMemo(
+    () => [
+      {
+        date: "Február 12.",
+        src: "/images/news/news1.png",
+        text: "A Whitedog Mediát díjazták a Cannes Corporate Media & TV Awardson",
+      },
+      {
+        date: "Február 12.",
+        src: "/images/news/news2.png",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+      },
+      {
+        date: "Február 12.",
+        src: "/images/news/news3.png",
+        text: "Aenean nec interdum neque, sit amet dapibus nibh. Mauris sed neque eu nulla ultrices bibendum id nec massa. ",
+      },
+      {
+        date: "Február 12.",
+        src: "/images/news/news4.png",
+        text: "Duis sed enim nec ligula mattis fringilla vitae quis tortor.",
+      },
+      {
+        date: "Február 12.",
+        src: "/images/news/news1.png",
+        text: "A Whitedog Mediát díjazták a Cannes Corporate Media & TV Awardson",
+      },
+      {
+        date: "Február 12.",
+        src: "/images/news/news2.png",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+      },
+      {
+        date: "Február 12.",
+        src: "/images/news/news3.png",
+        text: "Aenean nec interdum neque, sit amet dapibus nibh. Mauris sed neque eu nulla ultrices bibendum id nec massa. ",
+      },
+      {
+        date: "Február 12.",
+        src: "/images/news/news4.png",
+        text: "Duis sed enim nec ligula mattis fringilla vitae quis tortor.",
+      },
+      {
+        date: "Február 12.",
+        src: "/images/news/news1.png",
+        text: "A Whitedog Mediát díjazták a Cannes Corporate Media & TV Awardson",
+      },
+      {
+        date: "Február 12.",
+        src: "/images/news/news2.png",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+      },
+      {
+        date: "Február 12.",
+        src: "/images/news/news3.png",
+        text: "Aenean nec interdum neque, sit amet dapibus nibh. Mauris sed neque eu nulla ultrices bibendum id nec massa. ",
+      },
+      {
+        date: "Február 12.",
+        src: "/images/news/news4.png",
+        text: "Duis sed enim nec ligula mattis fringilla vitae quis tortor.",
+      },
+    ],
+    [],
+  );
+
+  const containerRef = useRef<HTMLDivElement>(
+    null,
+  ) as React.MutableRefObject<HTMLDivElement>;
+  const { events } = useDraggable(containerRef, {
+    applyRubberBandEffect: true,
+    decayRate: 0.98,
+  });
+
+  useHorizontalScroll(containerRef);
+
   return (
     <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 pb-20 bg-secondary">
       <Title className={"text-white"} text={"Aktualitások"} />
@@ -32,17 +118,24 @@ const NewsSectionComponent: FC = () => {
           );
         })}
       </div>
-      <div className="flex flex-row w-full h-auto space-x-3">
-        <NewsSlideshowItem
-          date="Február 12."
-          src="/images/news/news1.png"
-          text="A Whitedog Mediát díjazták a Cannes Corporate Media & TV Awardson"
-        />
-        <NewsSlideshowItem
-          date="Február 12."
-          src="/images/news/news2.png"
-          text="Aenean nec interdum neque, sit amet dapibus nibh. Mauris sed neque eu nulla ultrices bibendum id nec massa. "
-        />
+      <div
+        ref={containerRef}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...events}
+        className="max-w-[99vw] flex flex-row md:px-7 px-2 overflow-x-hidden"
+      >
+        <div className="space-x-3 inline-flex">
+          {newsItemsList.map(service => {
+            return (
+              <NewsSlideshowItem
+                key={service.text}
+                date={service.date}
+                src={service.src}
+                text={service.text}
+              />
+            );
+          })}
+        </div>
       </div>
     </section>
   );
