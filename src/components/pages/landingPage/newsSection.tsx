@@ -11,8 +11,8 @@ import { useDraggable } from "react-use-draggable-scroll";
 
 import useHorizontalScroll from "../../../hooks/useHorizontalScroll";
 import { NewsNavbarTypes } from "../../../types/newsNavbarTypes";
-import { NewsNavbarItem } from "../../common/News/NewsNavbarItem";
-import { NewsSlideshowItem } from "../../common/News/NewsSlideshowItem";
+import { NavbarItem } from "../../common/Navbar/NavbarItem";
+import { SlideshowItem } from "../../common/Slideshow/SlideshowItem";
 import { Title } from "../../common/Title/Title";
 
 const NewsSectionComponent: FC = () => {
@@ -109,7 +109,7 @@ const NewsSectionComponent: FC = () => {
       <div className="flex flex-row w-full h-auto space-x-3 pb-8">
         {navbarOptions.map(option => {
           return (
-            <NewsNavbarItem
+            <NavbarItem
               key={option}
               active={selectedSection === option}
               text={option}
@@ -127,7 +127,7 @@ const NewsSectionComponent: FC = () => {
         <div className="space-x-3 inline-flex">
           {newsItemsList.map(service => {
             return (
-              <NewsSlideshowItem
+              <SlideshowItem
                 key={service.text}
                 date={service.date}
                 src={service.src}

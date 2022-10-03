@@ -1,14 +1,12 @@
 import clsx from "clsx";
 import { memo, FC, MouseEventHandler } from "react";
 
-import { NewsNavbarTypes } from "../../../types/newsNavbarTypes";
-
-interface NewsNavbarItemTypes {
-  text: NewsNavbarTypes;
+interface NavbarItemTypes {
+  text: string;
   active: boolean;
   onClick: MouseEventHandler<HTMLButtonElement>;
 }
-const NewsNavbarItemComponent: FC<NewsNavbarItemTypes> = ({
+const NavbarItemComponent: FC<NavbarItemTypes> = ({
   active,
   text,
   onClick,
@@ -31,4 +29,4 @@ const NewsNavbarItemComponent: FC<NewsNavbarItemTypes> = ({
   );
 };
 
-export const NewsNavbarItem = memo(NewsNavbarItemComponent);
+export const NavbarItem = memo(NavbarItemComponent);

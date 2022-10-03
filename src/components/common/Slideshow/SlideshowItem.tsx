@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { memo, FC, MouseEventHandler } from "react";
 
-interface NewsSlideshowItemTypes {
+interface SlideshowItemTypes {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   text: string;
   date: string;
   src: string;
 }
-const NewsSlideshowItemComponent: FC<NewsSlideshowItemTypes> = ({
+const SlideshowItemComponent: FC<SlideshowItemTypes> = ({
   onClick,
   text,
   date,
@@ -38,4 +38,4 @@ const NewsSlideshowItemComponent: FC<NewsSlideshowItemTypes> = ({
   );
 };
 
-export const NewsSlideshowItem = memo(NewsSlideshowItemComponent);
+export const SlideshowItem = memo(SlideshowItemComponent);
