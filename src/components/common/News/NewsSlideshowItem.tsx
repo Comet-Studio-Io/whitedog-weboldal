@@ -14,7 +14,7 @@ const NewsSlideshowItemComponent: FC<NewsSlideshowItemTypes> = ({
   src,
 }) => {
   return (
-    <div className="flex flex-col w-auto h-auto">
+    <div className="inline-flex flex-col w-max h-auto">
       <div
         className={
           "cursor-pointer flex flex-col justify-center items-center h-auto w-auto relative max-w-[336px] max-h-[250px]"
@@ -28,7 +28,7 @@ const NewsSlideshowItemComponent: FC<NewsSlideshowItemTypes> = ({
           width={336}
         />
       </div>
-      <div className="flex-col h-auto w-auto max-w-[336px]">
+      <div className="flex-col h-auto w-auto max-w-[336px] pt-3 whitespace-normal">
         <span className="text-white hover:underline transition-all duration-300 cursor-pointer">
           {text}
         </span>
