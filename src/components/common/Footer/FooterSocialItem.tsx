@@ -1,22 +1,20 @@
-import Image from "next/image";
 import { memo, FC } from "react";
 
 interface FooterSocialItemTypes {
   href: string;
-  src: string;
+  SVGIcon: FC<React.SVGProps<SVGSVGElement>>;
 }
 
 const FooterSocialItemComponent: FC<FooterSocialItemTypes> = ({
-  src,
+  SVGIcon,
   href,
 }) => {
   return (
     <a href={href}>
-      <Image
+      <SVGIcon
         className="hover:text-black text-text-gray-light fill-current duration-300 transition-all"
-        height={20}
-        src={src}
-        width={20}
+        height={24}
+        width={24}
       />
     </a>
   );
