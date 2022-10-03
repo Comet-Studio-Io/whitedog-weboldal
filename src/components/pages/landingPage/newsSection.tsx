@@ -1,28 +1,13 @@
-import {
-  memo,
-  FC,
-  useState,
-  useCallback,
-  MouseEvent,
-  useMemo,
-  useRef,
-} from "react";
+import { memo, FC, useMemo, useRef } from "react";
 import { useDraggable } from "react-use-draggable-scroll";
 
 import useHorizontalScroll from "../../../hooks/useHorizontalScroll";
 import { NewsNavbarTypes } from "../../../types/newsNavbarTypes";
-import { NavbarItem } from "../../common/Navbar/NavbarItem";
+import { Navbar } from "../../common/Navbar/Navbar";
 import { SlideshowItem } from "../../common/Slideshow/SlideshowItem";
 import { Title } from "../../common/Title/Title";
 
 const NewsSectionComponent: FC = () => {
-  const [selectedSection, setSelectedSection] =
-    useState<NewsNavbarTypes>("Összes");
-
-  const handleNavbarClick = useCallback((e: MouseEvent<HTMLButtonElement>) => {
-    setSelectedSection(e.currentTarget.value as NewsNavbarTypes);
-  }, []);
-
   const navbarOptions: NewsNavbarTypes[] = useMemo(() => {
     return ["Összes", "Díjak", "Publikációk", "Sajtómegjelenések"];
   }, []);
@@ -106,18 +91,7 @@ const NewsSectionComponent: FC = () => {
   return (
     <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 pb-20 bg-secondary">
       <Title className={"text-white"} text={"Aktualitások"} />
-      <div className="flex flex-row w-full h-auto space-x-3 pb-8">
-        {navbarOptions.map(option => {
-          return (
-            <NavbarItem
-              key={option}
-              active={selectedSection === option}
-              text={option}
-              onClick={handleNavbarClick}
-            />
-          );
-        })}
-      </div>
+      <Navbar data={navbarOptions} />
       <div
         ref={containerRef}
         // eslint-disable-next-line react/jsx-props-no-spreading
