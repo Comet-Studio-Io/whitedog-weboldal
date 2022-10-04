@@ -1,9 +1,12 @@
 import { GridItem } from "@chakra-ui/react";
 import Image from "next/image";
-import { FC, memo } from "react";
+import { useRouter } from "next/router";
+import { FC, memo, useCallback } from "react";
+
+import { webPaths } from "../../../webpaths";
 
 import { ProjectGridTitle } from "./ProjectGridTitle";
-import { ProjectTag } from "./ProjectTag";
+import { ProjectTags } from "./ProjectTags";
 
 interface ProjectGridItemTypes {
   colSpan?: number;
@@ -13,8 +16,7 @@ interface ProjectGridItemTypes {
   rowEnd: number;
   title: string;
   imgSrc: string;
-  tag1?: string;
-  tag2?: string;
+  tagArray?: string[];
 }
 
 const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
@@ -25,9 +27,16 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
   title,
   imgSrc,
   colSpan,
-  tag1,
-  tag2,
+  tagArray,
 }) => {
+  const router = useRouter();
+  const handleProjectClick = useCallback(() => {
+    void router.push({
+      pathname: `${webPaths.project}/${title}`,
+      query: { tags: tagArray },
+    });
+  }, []);
+
   return (
     <GridItem
       colEnd={colEnd}
@@ -36,17 +45,24 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
       rowEnd={rowEnd}
       rowStart={rowStart}
     >
-      <div className="w-full h-full relative">
+      <div
+        className="w-full h-full relative"
+        role={"button"}
+        tabIndex={0}
+        onClick={handleProjectClick}
+        onKeyDown={handleProjectClick}
+      >
         <ProjectGridTitle text={title} />
         <Image
           className="object-cover h-full rounded-xl hover:rounded-none transition-all duration-500"
           layout={"fill"}
           src={imgSrc}
         />
-        <div className="absolute md:bottom-4 md:left-4 bottom-3 left-3 flex flex-row">
-          {tag1 !== undefined && <ProjectTag text={tag1} />}
-          {tag2 !== undefined && <ProjectTag text={tag2} />}
-        </div>
+        {tagArray !== undefined && (
+          <div className="absolute md:bottom-4 md:left-4 bottom-3 left-3">
+            <ProjectTags tagArray={tagArray} />
+          </div>
+        )}
       </div>
     </GridItem>
   );
