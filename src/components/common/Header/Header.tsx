@@ -10,7 +10,7 @@ const HeaderComponent: FC = (): JSX.Element => {
   const userAgent = useGetUserAgent();
 
   return (
-    <header className="h-12 justify-between w-full md:px-8 px-2 absolute items-center flex flex-row z-20">
+    <header className="h-12 justify-between w-full md:px-8 px-2 items-center flex flex-row z-20 relative">
       <Image
         alt="header-icon"
         height={24}
