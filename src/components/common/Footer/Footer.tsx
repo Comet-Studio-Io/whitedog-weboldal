@@ -1,5 +1,7 @@
 import { memo } from "react";
 
+import { PageTitle } from "../Title/PageTitle";
+
 import { FooterCarousel } from "./FooterCarousel";
 import { FooterContact } from "./FooterContact";
 import { FooterSocials } from "./FooterSocials";
@@ -9,9 +11,7 @@ const FooterComponent = (): JSX.Element => {
     <footer className="bg-primary-gray justify-start items-start flex flex-row w-full">
       <div className="pt-10 px-2 md:px-8 w-full">
         <FooterCarousel />
-        <span className="text-text-gray-dark text-[40px] md:text-[5.5rem]">
-          {"Kapcsolat"}
-        </span>
+        <PageTitle className="text-text-gray-dark" text={"Kapcsolat"} />
         <FooterSocials />
         <FooterContact />
         <div className="flex justify-end text-text-gray-light lg:-top-6 relative items-end lg:pb-4 pb-14">

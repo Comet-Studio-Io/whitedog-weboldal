@@ -3,6 +3,7 @@ import Image from "next/image";
 import { memo, FC } from "react";
 
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
+import { PageTitle } from "../../common/Title/PageTitle";
 
 const HeroSectionComponent: FC = (): JSX.Element => {
   const deviceState = useGetUserAgent();
@@ -34,9 +35,7 @@ const HeroSectionComponent: FC = (): JSX.Element => {
         <span className="text-white flex md:text-[24px] text-[18px] text-opacity-50 uppercase">
           {"Creative agency"}
         </span>
-        <span className="text-white md:text-[5.5rem] text-[40px] leading-none">
-          {"Whitedog Media"}
-        </span>
+        <PageTitle className="text-white" text={"Whitedog Media"} />
       </div>
     </section>
   );
