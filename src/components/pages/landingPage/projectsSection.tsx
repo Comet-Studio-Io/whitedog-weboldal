@@ -35,8 +35,7 @@ const ProjectsSectionComponent: FC = () => {
             imgSrc={"/images/projects/high-tech-suli.gif"}
             rowEnd={4}
             rowStart={1}
-            tag1={"branding"}
-            tag2={"advertising"}
+            tagArray={["branding", "advertising"]}
             title={"high tech suli"}
           />
           <ProjectGridItem
@@ -44,7 +43,7 @@ const ProjectsSectionComponent: FC = () => {
             imgSrc={"/images/projects/gallio.gif"}
             rowEnd={7}
             rowStart={4}
-            tag1={"branding"}
+            tagArray={["branding"]}
             title={"gallio"}
           />
           <ProjectGridItem
@@ -52,7 +51,7 @@ const ProjectsSectionComponent: FC = () => {
             imgSrc={"/images/projects/ds.gif"}
             rowEnd={10}
             rowStart={7}
-            tag1={"branding"}
+            tagArray={["branding"]}
             title={"dustin"}
           />
           <ProjectGridItem
@@ -60,7 +59,7 @@ const ProjectsSectionComponent: FC = () => {
             imgSrc={"/images/projects/mkb-lakasfelujitas.gif"}
             rowEnd={13}
             rowStart={10}
-            tag1={"branding"}
+            tagArray={["branding"]}
             title={"mkb"}
           />
           <ProjectGridItem
@@ -68,8 +67,7 @@ const ProjectsSectionComponent: FC = () => {
             imgSrc={"/images/projects/ikea-demo.gif"}
             rowEnd={16}
             rowStart={13}
-            tag1={"branding"}
-            tag2={"advertising"}
+            tagArray={["branding", "advertising"]}
             title={"épkar"}
           />
         </ProjectGrid>
@@ -81,8 +79,7 @@ const ProjectsSectionComponent: FC = () => {
             imgSrc={"/images/projects/epkar.gif"}
             rowEnd={6}
             rowStart={1}
-            tag1={"branding"}
-            tag2={"advertising"}
+            tagArray={["branding", "advertising"]}
             title={"épkar"}
           />
           <ProjectGridItem
@@ -91,7 +88,7 @@ const ProjectsSectionComponent: FC = () => {
             imgSrc={"/images/projects/gallio.gif"}
             rowEnd={5}
             rowStart={1}
-            tag1={"branding"}
+            tagArray={["branding"]}
             title={"gallio"}
           />
           <ProjectGridItem
@@ -99,7 +96,7 @@ const ProjectsSectionComponent: FC = () => {
             imgSrc={"/images/projects/ds.gif"}
             rowEnd={15}
             rowStart={6}
-            tag1={"branding"}
+            tagArray={["branding"]}
             title={"dustin"}
           />
           <ProjectGridItem
@@ -108,7 +105,7 @@ const ProjectsSectionComponent: FC = () => {
             imgSrc={"/images/projects/mkb-lakasfelujitas.gif"}
             rowEnd={22}
             rowStart={17}
-            tag1={"branding"}
+            tagArray={["branding"]}
             title={"mkb"}
           />
           <ProjectGridItem
@@ -117,8 +114,7 @@ const ProjectsSectionComponent: FC = () => {
             imgSrc={"/images/projects/ikea-demo.gif"}
             rowEnd={22}
             rowStart={15}
-            tag1={"branding"}
-            tag2={"advertising"}
+            tagArray={["branding", "advertising"]}
             title={"épkar"}
           />
         </ProjectGrid>
