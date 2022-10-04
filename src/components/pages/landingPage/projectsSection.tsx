@@ -13,8 +13,8 @@ const ProjectsSectionComponent: FC = () => {
   const router = useRouter();
   const deviceState = useGetUserAgent();
 
-  const handleProjectButtonClick = useCallback(async () => {
-    await router.push(webPaths.projects);
+  const handleProjectButtonClick = useCallback(() => {
+    void router.push(webPaths.projects);
   }, []);
 
   return (
@@ -123,7 +123,6 @@ const ProjectsSectionComponent: FC = () => {
           />
         </ProjectGrid>
       )}
-      {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
       <Button text="összes projekt" onClick={handleProjectButtonClick} />
     </section>
   );
