@@ -54,6 +54,7 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
       >
         <ProjectGridTitle text={title} />
         <Image
+          priority
           className="object-cover h-full rounded-xl hover:rounded-none transition-all duration-500"
           layout={"fill"}
           src={imgSrc}
