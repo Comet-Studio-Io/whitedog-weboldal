@@ -1,4 +1,5 @@
 import { Grid } from "@chakra-ui/react";
+import clsx from "clsx";
 import { FC, memo, ReactNode } from "react";
 
 interface ProjectGridTypes {
@@ -6,6 +7,7 @@ interface ProjectGridTypes {
   rows: number;
   rowHeight?: string;
   children: ReactNode[];
+  className?: string;
 }
 
 const ProjectGridComponent: FC<ProjectGridTypes> = ({
@@ -13,10 +15,11 @@ const ProjectGridComponent: FC<ProjectGridTypes> = ({
   columns,
   rows,
   rowHeight = "9.75vh",
+  className,
 }) => {
   return (
     <Grid
-      className="w-full min-h-screen h-max pb-12"
+      className={clsx("w-full h-auto pb-8", className)}
       gap={12}
       templateColumns={`repeat(${columns}, 1fr)`}
       templateRows={`repeat(${rows}, ${rowHeight})`}
