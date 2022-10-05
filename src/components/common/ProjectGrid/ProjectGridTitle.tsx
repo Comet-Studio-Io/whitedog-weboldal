@@ -1,7 +1,7 @@
 import { FC, memo } from "react";
 
 interface ProjectGridTitleTypes {
-  text: string;
+  text?: string;
 }
 
 const ProjectGridTitleComponent: FC<ProjectGridTitleTypes> = ({ text }) => {
