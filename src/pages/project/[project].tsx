@@ -3,22 +3,34 @@ import { useEffect, useState } from "react";
 
 import { DefaultLayout } from "../../components/layouts/defaultLayout";
 import { SpecificProjectPage } from "../../components/pages/specificProjectPage/[project]";
+import { SpecificProjectPageTypes } from "../../types/specificProjectPageTypes";
 
 const ProjectPage = (): JSX.Element => {
   const router = useRouter();
-  const [tags, setTags] = useState<string[]>([""]);
+  const [queryState, setQueryState] = useState<SpecificProjectPageTypes>({
+    projectData: {
+      company: "",
+      tags: [],
+      title: "",
+    },
+  });
 
   useEffect(() => {
-    if (typeof router.query.tags === "string") {
-      setTags([router.query.tags]);
-    } else {
-      setTags(router.query.tags as string[]);
+    if (router.query !== undefined) {
+      setQueryState({
+        projectData: {
+          ...queryState,
+          company: router.query.company as string,
+          tags: router.query.tags as string[],
+          title: router.query.title as string,
+        },
+      });
     }
   }, [router.query]);
 
   return (
     <DefaultLayout>
-      <SpecificProjectPage tagArray={tags} />
+      <SpecificProjectPage projectData={queryState.projectData} />
     </DefaultLayout>
   );
 };
