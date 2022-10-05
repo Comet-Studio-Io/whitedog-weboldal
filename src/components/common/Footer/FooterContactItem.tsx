@@ -15,13 +15,14 @@ const FooterContactItemComponent: FC<FooterContactItemTypes> = ({
   return (
     <div className="flex flex-col mx-1">
       <span className="text-text-gray-light capitalize">{title}</span>
-      <span
-        className={clsx("md:max-w-[13em] pb-6 md:pb-0", {
+      <button
+        className={clsx("md:max-w-[13em] pb-6 md:pb-0 text-left", {
           underline,
         })}
+        type="button"
       >
         {data}
-      </span>
+      </button>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { FooterContactItem } from "./FooterContactItem";
 
 const FooterContactComponent: FC = () => {
   return (
-    <div className="flex flex-col md:flex-row lg:w-1/2 justify-between pt-10">
+    <div className="flex flex-col md:flex-row lg:w-1/2 justify-between pt-10 relative z-10">
       <FooterContactItem data="1062 Budapest, Andrássy út 105." title="cím" />
       <FooterContactItem data="office@whitedogmedia.hu" title="email" />
       <FooterContactItem
