@@ -16,12 +16,14 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
 
   return (
     <section
-      className={"w-full h-auto flex flex-col min-h-screen md:px-8 px-2 pb-12"}
+      className={
+        "w-full h-auto flex flex-col min-h-screen md:px-8 px-2 pb-6 md:pb-12"
+      }
     >
       <Title className="text-primary-gray" text="Projektek" />
       <Navbar data={navbarOptions} />
       {deviceState === "mobile" ? (
-        <ProjectGrid columns={5} rows={22}>
+        <ProjectGrid columns={5} rows={21}>
           <ProjectGridItem
             colSpan={5}
             imgSrc={"/images/projects/high-tech-suli.gif"}
@@ -73,8 +75,8 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
           <ProjectGridItem
             colSpan={5}
             imgSrc={"/images/projects/gallio.gif"}
-            rowEnd={23}
-            rowStart={20}
+            rowEnd={22}
+            rowStart={19}
             tagArray={["branding"]}
             title={"gallio"}
           />
