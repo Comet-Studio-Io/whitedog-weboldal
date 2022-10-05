@@ -1,7 +1,6 @@
 import { memo, FC, useMemo, useRef } from "react";
 import { useDraggable } from "react-use-draggable-scroll";
 
-import useHorizontalScroll from "../../../hooks/useHorizontalScroll";
 import { NewsNavbarTypes } from "../../../types/newsNavbarTypes";
 import { Navbar } from "../../common/Navbar/Navbar";
 import { SlideshowItem } from "../../common/Slideshow/SlideshowItem";
@@ -85,8 +84,6 @@ const NewsSectionComponent: FC = () => {
     applyRubberBandEffect: true,
     decayRate: 0.98,
   });
-
-  useHorizontalScroll(containerRef);
 
   return (
     <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 pb-20 bg-secondary">
