@@ -15,6 +15,8 @@ interface ProjectGridItemTypes {
   rowStart: number;
   rowEnd: number;
   title: string;
+  projectTitle: string;
+  company: string;
   imgSrc: string;
   tagArray?: string[];
 }
@@ -25,6 +27,8 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
   rowEnd,
   rowStart,
   title,
+  projectTitle,
+  company,
   imgSrc,
   colSpan,
   tagArray,
@@ -33,7 +37,7 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
   const handleProjectClick = useCallback(() => {
     void router.push({
       pathname: `${webPaths.project}/${title}`,
-      query: { tags: tagArray },
+      query: { tags: tagArray, title: projectTitle, company },
     });
   }, []);
 
