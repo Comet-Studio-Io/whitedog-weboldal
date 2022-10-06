@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactElement } from "react";
 
 import { ProjectGrid } from "../ProjectGrid/ProjectGrid";
 import { Title } from "../Title/Title";
@@ -8,7 +8,7 @@ interface RelatedProjectsTypes {
   projectAmount?: number;
   gridRows: number;
   gridColumns: number;
-  children: ReactNode[];
+  children: ReactElement[];
 }
 
 export const RelatedProjects: FC<RelatedProjectsTypes> = ({
