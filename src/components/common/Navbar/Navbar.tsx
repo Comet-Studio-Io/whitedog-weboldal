@@ -1,19 +1,23 @@
 import { memo, MouseEvent, useCallback, useState } from "react";
 
+import { useZustandStore } from "../../../store/useStore";
+
 import { NavbarItem } from "./NavbarItem";
 
 const NavbarComponent = <T extends string>({
   data,
-  onClick,
+  setZustandItem,
 }: {
   data: T[];
-  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+  setZustandItem: string;
 }): JSX.Element => {
   const [selectedSection, setSelectedSection] = useState<T>(data[0]);
 
   const handleNavbarClick = useCallback((e: MouseEvent<HTMLButtonElement>) => {
     setSelectedSection(e.currentTarget.value as T);
-    onClick(e);
+    useZustandStore.setState({
+      [setZustandItem]: e.currentTarget.value,
+    });
   }, []);
 
   return (
