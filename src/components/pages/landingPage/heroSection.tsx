@@ -27,7 +27,7 @@ const HeroSectionComponent: FC = (): JSX.Element => {
       />
       <div
         className={clsx("leading-none relative", {
-          "flex flex-col justify-end mx-2 bottom-4 min-h-[100vh]":
+          "flex flex-col justify-end mx-2 bottom-4 min-h-[95vh]":
             deviceState === "mobile",
           "-top-[8.75rem] ml-7": deviceState === "desktop",
         })}
