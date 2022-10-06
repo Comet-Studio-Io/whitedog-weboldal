@@ -5,10 +5,12 @@ import { ProjectNavbarTypes } from "../types/projectsNavbarTypes";
 
 interface StoreTypes {
   selectedTag: string[] | undefined;
-  filterType: NewsNavbarTypes | ProjectNavbarTypes;
+  projectFilter: ProjectNavbarTypes;
+  newsFilter: NewsNavbarTypes;
 }
 
 export const useZustandStore = create<StoreTypes>(set => ({
   selectedTag: undefined,
-  filterType: "Összes",
+  projectFilter: "Összes",
+  newsFilter: "Összes",
 }));
