@@ -92,7 +92,7 @@ const NewsSectionComponent: FC = () => {
   return (
     <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 pb-20 bg-secondary">
       <Title className={"text-white"} text={"Aktualitások"} />
-      <Navbar data={navbarOptions} />
+      <Navbar data={navbarOptions} setZustandItem={"newsFilter"} />
       <div
         ref={containerRef}
         // eslint-disable-next-line react/jsx-props-no-spreading
