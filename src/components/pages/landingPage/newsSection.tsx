@@ -1,12 +1,16 @@
+import clsx from "clsx";
 import { memo, FC, useMemo, useRef } from "react";
 import { useDraggable } from "react-use-draggable-scroll";
 
+import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
 import { NewsNavbarTypes } from "../../../types/newsNavbarTypes";
 import { Navbar } from "../../common/Navbar/Navbar";
 import { SlideshowItem } from "../../common/Slideshow/SlideshowItem";
 import { Title } from "../../common/Title/Title";
 
 const NewsSectionComponent: FC = () => {
+  const userAgent = useGetUserAgent();
+
   const navbarOptions: NewsNavbarTypes[] = useMemo(() => {
     return ["Összes", "Díjak", "Publikációk", "Sajtómegjelenések"];
   }, []);
@@ -93,7 +97,10 @@ const NewsSectionComponent: FC = () => {
         ref={containerRef}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...events}
-        className="max-w-[99vw] flex flex-row md:px-7 px-2 overflow-x-hidden"
+        className={clsx("max-w-[99vw] flex flex-row md:px-7 px-2", {
+          "overflow-x-hidden": userAgent === "desktop",
+          "overflow-x-auto": userAgent === "mobile",
+        })}
       >
         <div className="space-x-3 inline-flex">
           {newsItemsList.map(service => {
