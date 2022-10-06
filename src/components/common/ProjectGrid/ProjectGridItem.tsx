@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC, memo, useCallback } from "react";
 
+import { ProjectFilterTypes } from "../../../types/projectFilterTypes";
 import { webPaths } from "../../../webpaths";
 
 import { ProjectGridTitle } from "./ProjectGridTitle";
@@ -17,6 +18,7 @@ interface ProjectGridItemTypes {
   title?: string;
   imgSrc: string;
   tagArray?: string[];
+  filterType?: ProjectFilterTypes;
 }
 
 const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
@@ -28,6 +30,7 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
   imgSrc,
   colSpan,
   tagArray,
+  filterType,
 }) => {
   const router = useRouter();
   const handleProjectClick = useCallback(() => {
