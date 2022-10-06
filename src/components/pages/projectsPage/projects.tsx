@@ -21,7 +21,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
       }
     >
       <Title className="text-primary-gray" text="Projektek" />
-      <Navbar data={navbarOptions} />
+      <Navbar data={navbarOptions} setZustandItem={"projectFilter"} />
       {deviceState === "mobile" ? (
         <ProjectGrid columns={5} rows={21}>
           <ProjectGridItem
@@ -86,32 +86,36 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
           <ProjectGridItem
             colEnd={5}
             colStart={1}
+            filterType="Arculat"
             imgSrc={"/images/projects/epkar.gif"}
             rowEnd={6}
             rowStart={1}
-            tagArray={["branding", "advertising"]}
+            tagArray={["branding", "advertising", "global"]}
             title={"épkar"}
           />
           <ProjectGridItem
             colEnd={8}
             colStart={5}
+            filterType="Arculat"
             imgSrc={"/images/projects/gallio.gif"}
             rowEnd={5}
             rowStart={1}
-            tagArray={["branding"]}
+            tagArray={["branding", "media"]}
             title={"gallio"}
           />
           <ProjectGridItem
             colSpan={7}
+            filterType="Filmgyártás"
             imgSrc={"/images/projects/ds.gif"}
             rowEnd={15}
             rowStart={6}
-            tagArray={["branding"]}
+            tagArray={["branding", "media"]}
             title={"dustin"}
           />
           <ProjectGridItem
             colEnd={4}
             colStart={1}
+            filterType="Filmgyártás"
             imgSrc={"/images/projects/mkb-lakasfelujitas.gif"}
             rowEnd={22}
             rowStart={17}
@@ -121,15 +125,17 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
           <ProjectGridItem
             colEnd={8}
             colStart={4}
+            filterType="Webfejlesztés"
             imgSrc={"/images/projects/ikea-demo.gif"}
             rowEnd={22}
             rowStart={15}
-            tagArray={["branding", "advertising"]}
+            tagArray={["branding", "advertising", "global"]}
             title={"épkar"}
           />
           <ProjectGridItem
             colEnd={5}
             colStart={1}
+            filterType="Webfejlesztés"
             imgSrc={"/images/projects/epkar.gif"}
             rowEnd={27}
             rowStart={22}
@@ -139,15 +145,17 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
           <ProjectGridItem
             colEnd={8}
             colStart={5}
+            filterType="Filmgyártás"
             imgSrc={"/images/projects/gallio.gif"}
             rowEnd={26}
             rowStart={22}
-            tagArray={["branding"]}
+            tagArray={["branding", "global"]}
             title={"gallio"}
           />
           <ProjectGridItem
             colEnd={4}
             colStart={1}
+            filterType="Arculat"
             imgSrc={"/images/projects/mkb-lakasfelujitas.gif"}
             rowEnd={34}
             rowStart={29}
