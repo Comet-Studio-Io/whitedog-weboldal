@@ -1,19 +1,25 @@
 import Image from "next/image";
 import { memo, FC, MouseEventHandler } from "react";
 
+import { useZustandStore } from "../../../store/useStore";
+
 interface SlideshowItemTypes {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   text: string;
   date: string;
   src: string;
+  filterType?: string;
 }
 const SlideshowItemComponent: FC<SlideshowItemTypes> = ({
   onClick,
   text,
   date,
   src,
+  filterType,
 }) => {
-  return (
+  const { newsFilter } = useZustandStore();
+
+  return newsFilter === filterType ? (
     <div className="inline-flex flex-col w-max h-auto">
       <div
         className={
@@ -35,7 +41,7 @@ const SlideshowItemComponent: FC<SlideshowItemTypes> = ({
         <span className="text-text-gray-light flex">{date}</span>
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export const SlideshowItem = memo(SlideshowItemComponent);

@@ -21,61 +21,73 @@ const NewsSectionComponent: FC = () => {
         date: "Február 12.",
         src: "/images/news/news1.png",
         text: "A Whitedog Mediát díjazták a Cannes Corporate Media & TV Awardson",
+        type: "Összes",
       },
       {
         date: "Február 12.",
         src: "/images/news/news2.png",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+        type: "Összes",
       },
       {
         date: "Február 12.",
         src: "/images/news/news3.png",
         text: "Aenean nec interdum neque, sit amet dapibus nibh. Mauris sed neque eu nulla ultrices bibendum id nec massa. ",
+        type: "Díjak",
       },
       {
         date: "Február 12.",
         src: "/images/news/news4.png",
         text: "Duis sed enim nec ligula mattis fringilla vitae quis tortor.",
+        type: "Publikációk",
       },
       {
         date: "Február 12.",
         src: "/images/news/news1.png",
         text: "A Whitedog Mediát díjazták a Cannes Corporate Media & TV Awardson",
+        type: "Díjak",
       },
       {
         date: "Február 12.",
         src: "/images/news/news2.png",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+        type: "Publikációk",
       },
       {
         date: "Február 12.",
         src: "/images/news/news3.png",
         text: "Aenean nec interdum neque, sit amet dapibus nibh. Mauris sed neque eu nulla ultrices bibendum id nec massa. ",
+        type: "Díjak",
       },
       {
         date: "Február 12.",
         src: "/images/news/news4.png",
         text: "Duis sed enim nec ligula mattis fringilla vitae quis tortor.",
+        type: "Publikációk",
       },
       {
         date: "Február 12.",
         src: "/images/news/news1.png",
         text: "A Whitedog Mediát díjazták a Cannes Corporate Media & TV Awardson",
+        type: "Díjak",
       },
       {
         date: "Február 12.",
         src: "/images/news/news2.png",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+        type: "Sajtómegjelenések",
       },
       {
         date: "Február 12.",
         src: "/images/news/news3.png",
         text: "Aenean nec interdum neque, sit amet dapibus nibh. Mauris sed neque eu nulla ultrices bibendum id nec massa. ",
+        type: "Sajtómegjelenések",
       },
       {
         date: "Február 12.",
         src: "/images/news/news4.png",
         text: "Duis sed enim nec ligula mattis fringilla vitae quis tortor.",
+        type: "Sajtómegjelenések",
       },
     ],
     [],
@@ -108,6 +120,7 @@ const NewsSectionComponent: FC = () => {
               <SlideshowItem
                 key={service.text}
                 date={service.date}
+                filterType={service.type}
                 src={service.src}
                 text={service.text}
               />
