@@ -20,7 +20,10 @@
     "**/*.ts",
     "**/*.tsx",
     "tailwind.config.js",
-    "postcss.config.js"
+    "postcss.config.js",
+    "backend/config/server.js",
+    "backend/src/index.js",
+    "backend/config/database.js"
   ],
   "exclude": ["node_modules"]
 }
