@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { memo, FC, useCallback } from "react";
 
+import { useGetProjects } from "../../../hooks/useGetProjects";
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
 import { webPaths } from "../../../webpaths";
 import { Button } from "../../common/Button/Button";
@@ -17,6 +18,8 @@ const ProjectsSectionComponent: FC = () => {
     void router.push(webPaths.projects);
   }, []);
 
+  const { data } = useGetProjects();
+
   return (
     <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 md:pb-20 pb-14">
       <Description
@@ -29,94 +32,38 @@ const ProjectsSectionComponent: FC = () => {
       <Title className={"text-primary-gray"} text={"Projektek"} />
 
       {deviceState === "mobile" ? (
-        <ProjectGrid columns={5} rows={15}>
-          <ProjectGridItem
-            colSpan={5}
-            imgSrc={"/images/projects/high-tech-suli.gif"}
-            rowEnd={4}
-            rowStart={1}
-            tagArray={["branding", "advertising"]}
-            title={"high tech suli"}
-          />
-          <ProjectGridItem
-            colSpan={5}
-            imgSrc={"/images/projects/gallio.gif"}
-            rowEnd={7}
-            rowStart={4}
-            tagArray={["branding"]}
-            title={"gallio"}
-          />
-          <ProjectGridItem
-            colSpan={5}
-            imgSrc={"/images/projects/ds.gif"}
-            rowEnd={10}
-            rowStart={7}
-            tagArray={["branding"]}
-            title={"dustin"}
-          />
-          <ProjectGridItem
-            colSpan={5}
-            imgSrc={"/images/projects/mkb-lakasfelujitas.gif"}
-            rowEnd={13}
-            rowStart={10}
-            tagArray={["branding"]}
-            title={"mkb"}
-          />
-          <ProjectGridItem
-            colSpan={5}
-            imgSrc={"/images/projects/ikea-demo.gif"}
-            rowEnd={16}
-            rowStart={13}
-            tagArray={["branding", "advertising"]}
-            title={"épkar"}
-          />
+        // @ts-expect-error map should give multiple children
+        <ProjectGrid columns={5} rows={data?.length * 3}>
+          {data?.map((project, i) => (
+            <ProjectGridItem
+              key={project.id}
+              colSpan={5}
+              imgSrc={project.attributes.image.data.attributes.url}
+              rowEnd={i + 4 + i * 2}
+              rowStart={i + 1 + i * 2}
+              tagArray={project.attributes.data.tags}
+              title={project.attributes.data.title}
+            />
+          ))}
         </ProjectGrid>
       ) : (
-        <ProjectGrid columns={7} rows={21}>
-          <ProjectGridItem
-            colEnd={5}
-            colStart={1}
-            imgSrc={"/images/projects/epkar.gif"}
-            rowEnd={6}
-            rowStart={1}
-            tagArray={["branding", "advertising"]}
-            title={"épkar"}
-          />
-          <ProjectGridItem
-            colEnd={8}
-            colStart={5}
-            imgSrc={"/images/projects/gallio.gif"}
-            rowEnd={5}
-            rowStart={1}
-            tagArray={["branding"]}
-            title={"gallio"}
-          />
-          <ProjectGridItem
-            colSpan={7}
-            imgSrc={"/images/projects/ds.gif"}
-            rowEnd={15}
-            rowStart={6}
-            tagArray={["branding"]}
-            title={"dustin"}
-          />
-          <ProjectGridItem
-            colEnd={4}
-            colStart={1}
-            imgSrc={"/images/projects/mkb-lakasfelujitas.gif"}
-            rowEnd={22}
-            rowStart={17}
-            tagArray={["branding"]}
-            title={"mkb"}
-          />
-          <ProjectGridItem
-            colEnd={8}
-            colStart={4}
-            imgSrc={"/images/projects/ikea-demo.gif"}
-            rowEnd={22}
-            rowStart={15}
-            tagArray={["branding", "advertising"]}
-            title={"épkar"}
-          />
+        // @ts-expect-error map should give multiple children
+        <ProjectGrid columns={7} rows={data?.at(-1)?.attributes.data.rowEnd}>
+          {data?.map(project => (
+            <ProjectGridItem
+              key={project.id}
+              colEnd={project.attributes.data.colEnd}
+              colStart={project.attributes.data.colStart}
+              imgSrc={`${process.env.NEXT_PUBLIC_API_URL ?? ""}upload/files/${
+                project.attributes.image.data.attributes.hash +
+                project.attributes.image.data.attributes.ext
+              }`}
+              rowEnd={project.attributes.data.rowEnd}
+              rowStart={project.attributes.data.rowStart}
+              tagArray={project.attributes.data.tags}
+              title={project.attributes.data.title}
+            />
+          ))}
         </ProjectGrid>
       )}
       <Button text="összes projekt" onClick={handleProjectButtonClick} />
