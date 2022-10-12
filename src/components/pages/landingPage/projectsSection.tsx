@@ -54,9 +54,10 @@ const ProjectsSectionComponent: FC = () => {
               key={project.id}
               colEnd={project.attributes.data.colEnd}
               colStart={project.attributes.data.colStart}
-              imgSrc={`${process.env.NEXT_PUBLIC_API_URL ?? ""}${
+              imgSrc={
+                String(process.env.NEXT_PUBLIC_API_URL) +
                 project.attributes.image.data.attributes.url
-              }`}
+              }
               rowEnd={project.attributes.data.rowEnd}
               rowStart={project.attributes.data.rowStart}
               tagArray={project.attributes.data.tags}
