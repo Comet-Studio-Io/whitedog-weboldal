@@ -58,7 +58,7 @@ const ListItemComponent: FC<ListItemTypes> = ({ title, data, dark = true }) => {
     >
       {isActive ? (
         <span className="flex flex-row">
-          <Collapse in={isActive}>{title + data}</Collapse>
+          <Collapse in={isActive}>{`${title} — ${data}`}</Collapse>
         </span>
       ) : (
         <span>{title}</span>
