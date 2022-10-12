@@ -5,6 +5,9 @@ const withSvgr = require("next-plugin-svgr");
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images:{
+    domains: ["localhost"]
+  }
 }
 
 module.exports = withSvgr(nextConfig);
