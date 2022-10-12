@@ -19,7 +19,7 @@ const SlideshowItemComponent: FC<SlideshowItemTypes> = ({
 }) => {
   const { newsFilter } = useZustandStore();
 
-  return newsFilter === filterType ? (
+  return newsFilter === filterType || newsFilter === "Összes" ? (
     <div className="inline-flex flex-col w-max h-auto">
       <div
         className={
