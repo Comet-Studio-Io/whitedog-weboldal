@@ -1,0 +1,60 @@
+{
+  "kind": "singleType",
+  "collectionName": "epkar_projects",
+  "info": {
+    "singularName": "epkar-project",
+    "pluralName": "epkar-projects",
+    "displayName": "Épkar Project",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "data": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "json",
+      "required": true
+    },
+    "list": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "list.list"
+      ]
+    },
+    "relatedProjects": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "project-grid-item.related-projects"
+    },
+    "ProjectGridItem": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "project-grid-item.related-projects"
+    }
+  }
+}

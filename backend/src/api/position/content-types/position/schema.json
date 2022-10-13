@@ -4,7 +4,8 @@
   "info": {
     "singularName": "position",
     "pluralName": "positions",
-    "displayName": "Positions"
+    "displayName": "Positions",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
