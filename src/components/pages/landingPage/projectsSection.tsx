@@ -18,7 +18,7 @@ const ProjectsSectionComponent: FC = () => {
     void router.push(webPaths.projects);
   }, []);
 
-  const { data } = useGetProjects();
+  const { data, status } = useGetProjects();
 
   return (
     <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 md:pb-20 pb-14">
@@ -30,42 +30,48 @@ const ProjectsSectionComponent: FC = () => {
       />
 
       <Title className={"text-primary-gray"} text={"Projektek"} />
+      {data !== undefined &&
+        status === "success" &&
+        (deviceState === "mobile" ? (
+          <ProjectGrid columns={5} rows={data.length * 3}>
+            {data.map((project, i) => (
+              <ProjectGridItem
+                key={project.id}
+                colSpan={5}
+                imgSrc={
+                  String(process.env.NEXT_PUBLIC_API_URL) +
+                  project.attributes.ProjectGridItem.image.data.attributes.url
+                }
+                rowEnd={i + 4 + i * 2}
+                rowStart={i + 1 + i * 2}
+                tagArray={project.attributes.ProjectGridItem.data.tags}
+                title={project.attributes.ProjectGridItem.data.title}
+              />
+            ))}
+          </ProjectGrid>
+        ) : (
+          <ProjectGrid
+            columns={7}
+            rows={data.at(-1)?.attributes.ProjectGridItem.data.rowEnd ?? 1}
+          >
+            {data.map(project => (
+              <ProjectGridItem
+                key={project.id}
+                colEnd={project.attributes.ProjectGridItem.data.colEnd}
+                colStart={project.attributes.ProjectGridItem.data.colStart}
+                imgSrc={
+                  String(process.env.NEXT_PUBLIC_API_URL) +
+                  project.attributes.ProjectGridItem.image.data.attributes.url
+                }
+                rowEnd={project.attributes.ProjectGridItem.data.rowEnd}
+                rowStart={project.attributes.ProjectGridItem.data.rowStart}
+                tagArray={project.attributes.ProjectGridItem.data.tags}
+                title={project.attributes.ProjectGridItem.data.title}
+              />
+            ))}
+          </ProjectGrid>
+        ))}
 
-      {deviceState === "mobile" ? (
-        // @ts-expect-error map should give multiple children
-        <ProjectGrid columns={5} rows={data?.length * 3}>
-          {data?.map((project, i) => (
-            <ProjectGridItem
-              key={project.id}
-              colSpan={5}
-              imgSrc={project.attributes.image.data.attributes.url}
-              rowEnd={i + 4 + i * 2}
-              rowStart={i + 1 + i * 2}
-              tagArray={project.attributes.data.tags}
-              title={project.attributes.data.title}
-            />
-          ))}
-        </ProjectGrid>
-      ) : (
-        // @ts-expect-error map should give multiple children
-        <ProjectGrid columns={7} rows={data?.at(-1)?.attributes.data.rowEnd}>
-          {data?.map(project => (
-            <ProjectGridItem
-              key={project.id}
-              colEnd={project.attributes.data.colEnd}
-              colStart={project.attributes.data.colStart}
-              imgSrc={
-                String(process.env.NEXT_PUBLIC_API_URL) +
-                project.attributes.image.data.attributes.url
-              }
-              rowEnd={project.attributes.data.rowEnd}
-              rowStart={project.attributes.data.rowStart}
-              tagArray={project.attributes.data.tags}
-              title={project.attributes.data.title}
-            />
-          ))}
-        </ProjectGrid>
-      )}
       <Button text="összes projekt" onClick={handleProjectButtonClick} />
     </section>
   );
