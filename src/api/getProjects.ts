@@ -6,5 +6,6 @@ import { ajax } from "../utils/ajax";
 export const getProjects = async (): Promise<
   AxiosResponse<GetProjectsTypes[]>
 > => {
-  return (await ajax.get("/projects")).data;
+  return (await ajax.get("/projects?populate[ProjectGridItem][populate]=*"))
+    .data;
 };
