@@ -1,9 +1,8 @@
+import { StrapiListItem } from "./strapiListItem";
+
 export interface GetListItemTypes {
   attributes: {
-    data: {
-      title: string;
-      data: string;
-    };
+    data: StrapiListItem;
     createdAt: string;
     publishedAt: string;
     updatedAt: string;
