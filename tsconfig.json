@@ -23,7 +23,8 @@
     "postcss.config.js",
     "backend/config/server.js",
     "backend/src/index.js",
-    "backend/config/database.js"
+    "backend/config/database.js",
+    "next.config.js"
   ],
   "exclude": ["node_modules"]
 }
