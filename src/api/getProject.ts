@@ -8,7 +8,7 @@ export const getProject = async (
 ): Promise<AxiosResponse<GetProjectTypes>> => {
   return (
     await ajax.get(
-      `${project}-project?populate[relatedProjects][populate]=*&populate[ProjectGridItem][populate]=*`,
+      `${project}-project?populate[0]=data.ProjectGridItem.image&populate[1]=data.ListItem&populate[2]=data.RelatedProjects.image`,
     )
   ).data;
 };

@@ -30,29 +30,30 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
   }, [router]);
 
   const deviceState = useGetUserAgent();
+  const projectData = data?.attributes.data;
 
   return (
     <section className={"w-full h-auto flex flex-col min-h-screen"}>
-      {data !== undefined && status === "success" ? (
+      {projectData !== undefined && status === "success" ? (
         <>
           <div className={"flex flex-col w-full md:px-8 px-2 pb-8"}>
             <div className="pt-14">
-              <ProjectTags darkMode tagArray={data?.attributes.data.tags} />
+              <ProjectTags darkMode tagArray={projectData.details.tags} />
             </div>
             <PageTitle
               className="text-white pt-4"
-              text={data?.attributes.data.title}
+              text={projectData.details.title}
             />
             <SubTitle
               className="text-white pt-4 pb-8"
-              text={data?.attributes.data.company}
+              text={projectData.details.company}
             />
             {deviceState === "mobile" ? (
               <ProjectGrid
                 columns={5}
-                rows={data.attributes.ProjectGridItem.length * 3}
+                rows={projectData.ProjectGridItem.length * 3}
               >
-                {data.attributes.ProjectGridItem.map((project, i) => {
+                {projectData.ProjectGridItem.map((project, i) => {
                   const { tags, title } = project.data;
 
                   return (
@@ -74,9 +75,9 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
             ) : (
               <ProjectGrid
                 columns={7}
-                rows={data.attributes.ProjectGridItem.at(-1)?.data.rowEnd ?? 1}
+                rows={projectData.ProjectGridItem.at(-1)?.data.rowEnd ?? 1}
               >
-                {data.attributes.ProjectGridItem.map(project => {
+                {projectData.ProjectGridItem.map(project => {
                   const { tags, title, colEnd, colStart, rowEnd, rowStart } =
                     project.data;
 
@@ -99,7 +100,7 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
               </ProjectGrid>
             )}
             <div className="pt-6">
-              {data.attributes.list?.map(service => {
+              {projectData.ListItem?.map(service => {
                 return (
                   <ListItem
                     key={service.data.title}
@@ -111,61 +112,61 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
               })}
             </div>
           </div>
-          {deviceState === "mobile" ? (
-            <RelatedProjects
-              gridColumns={5}
-              gridRows={data.attributes.relatedProjects.length * 4}
-              title="Kapcsolódó projektek"
-            >
-              {data.attributes.relatedProjects.map((project, i) => {
-                const { tags, title } = project.data;
+          {projectData.RelatedProjects.length > 0 ? (
+            deviceState === "mobile" ? (
+              <RelatedProjects
+                gridColumns={5}
+                gridRows={projectData.RelatedProjects.length * 4}
+                title="Kapcsolódó projektek"
+              >
+                {projectData.RelatedProjects.map((project, i) => {
+                  const { tags, title } = project.data;
 
-                return (
-                  <ProjectGridItem
-                    key={project.id}
-                    colSpan={5}
-                    imgSrc={
-                      String(process.env.NEXT_PUBLIC_API_URL) +
-                      project.image.data.attributes.url
-                    }
-                    rowEnd={i + 4 + i * 2}
-                    rowStart={i + 1 + i * 2}
-                    tagArray={tags}
-                    title={title}
-                  />
-                );
-              })}
-            </RelatedProjects>
-          ) : (
-            <RelatedProjects
-              gridColumns={7}
-              gridRows={
-                data.attributes.relatedProjects.at(-1)?.data.rowEnd ?? 1
-              }
-              title="Kapcsolódó projektek"
-            >
-              {data.attributes.relatedProjects.map(project => {
-                const { tags, title, colEnd, colStart, rowEnd, rowStart } =
-                  project.data;
+                  return (
+                    <ProjectGridItem
+                      key={project.id}
+                      colSpan={5}
+                      imgSrc={
+                        String(process.env.NEXT_PUBLIC_API_URL) +
+                        project.image.data.attributes.url
+                      }
+                      rowEnd={i + 4 + i * 2}
+                      rowStart={i + 1 + i * 2}
+                      tagArray={tags}
+                      title={title}
+                    />
+                  );
+                })}
+              </RelatedProjects>
+            ) : (
+              <RelatedProjects
+                gridColumns={7}
+                gridRows={projectData.RelatedProjects.at(-1)?.data.rowEnd ?? 1}
+                title="Kapcsolódó projektek"
+              >
+                {projectData.RelatedProjects.map(project => {
+                  const { tags, title, colEnd, colStart, rowEnd, rowStart } =
+                    project.data;
 
-                return (
-                  <ProjectGridItem
-                    key={project.id}
-                    colEnd={colEnd}
-                    colStart={colStart}
-                    imgSrc={
-                      String(process.env.NEXT_PUBLIC_API_URL) +
-                      project.image.data.attributes.url
-                    }
-                    rowEnd={rowEnd}
-                    rowStart={rowStart}
-                    tagArray={tags}
-                    title={title}
-                  />
-                );
-              })}
-            </RelatedProjects>
-          )}
+                  return (
+                    <ProjectGridItem
+                      key={project.id}
+                      colEnd={colEnd}
+                      colStart={colStart}
+                      imgSrc={
+                        String(process.env.NEXT_PUBLIC_API_URL) +
+                        project.image.data.attributes.url
+                      }
+                      rowEnd={rowEnd}
+                      rowStart={rowStart}
+                      tagArray={tags}
+                      title={title}
+                    />
+                  );
+                })}
+              </RelatedProjects>
+            )
+          ) : null}
         </>
       ) : null}
     </section>
