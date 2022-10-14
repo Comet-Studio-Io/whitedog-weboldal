@@ -1,0 +1,55 @@
+import { Grid } from "@chakra-ui/react";
+import clsx from "clsx";
+import { FC, memo, ReactElement } from "react";
+
+import { useZustandStore } from "../../../store/useStore";
+
+interface ProjectGridTypes {
+  columns: number;
+  rows: number;
+  rowHeight?: string;
+  children: ReactElement[];
+  className?: string;
+}
+
+const ProjectGridComponent: FC<ProjectGridTypes> = ({
+  children,
+  columns,
+  rows,
+  rowHeight = "9.75vh",
+  className,
+}) => {
+  const { selectedTag, projectFilter } = useZustandStore();
+
+  return (
+    <Grid
+      className={clsx("w-full h-auto pb-8", className)}
+      gap={12}
+      templateColumns={`repeat(${columns}, 1fr)`}
+      templateRows={`repeat(${rows}, ${rowHeight})`}
+    >
+      {projectFilter !== "Összes" && selectedTag === undefined
+        ? children.filter((e: ReactElement) =>
+            projectFilter.includes(e.props?.filterType),
+          )
+        : projectFilter === "Összes" && selectedTag !== undefined
+        ? children.filter((e: ReactElement) =>
+            selectedTag.every((tag: string) => {
+              return e.props?.tagArray?.includes(tag);
+            }),
+          )
+        : projectFilter !== "Összes" && selectedTag !== undefined
+        ? children.filter((e: ReactElement) =>
+            selectedTag.every((tag: string) => {
+              return (
+                projectFilter.includes(e.props?.filterType) &&
+                e.props?.tagArray?.includes(tag)
+              );
+            }),
+          )
+        : children}
+    </Grid>
+  );
+};
+
+export const ProjectGrid = memo(ProjectGridComponent);
