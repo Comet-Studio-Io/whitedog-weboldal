@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_standalone_project_page_standalone_project_pages",
+  "info": {
+    "displayName": "Standalone Project Page",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "details": {
+      "type": "json",
+      "required": true
+    },
+    "ProjectGridItem": {
+      "type": "component",
+      "repeatable": true,
+      "component": "project-grid-item.related-projects",
+      "required": true
+    },
+    "ListItem": {
+      "type": "component",
+      "repeatable": true,
+      "component": "list.list"
+    },
+    "RelatedProjects": {
+      "type": "component",
+      "repeatable": true,
+      "component": "project-grid-item.related-projects"
+    }
+  }
+}
