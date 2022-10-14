@@ -1,5 +1,7 @@
-import { memo, FC, useMemo } from "react";
+import { useRouter } from "next/router";
+import { memo, FC, useEffect } from "react";
 
+import { useGetProject } from "../../../hooks/useGetProject";
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
 import { ListItem } from "../../common/List/ListItem";
 import { ProjectGrid } from "../../common/ProjectGrid/ProjectGrid";
@@ -10,169 +12,162 @@ import { PageTitle } from "../../common/Title/PageTitle";
 import { SubTitle } from "../../common/Title/SubTitle";
 
 const SpecificProjectPageComponent: FC = (): JSX.Element => {
-  const tags = ["branding"];
-  const title = "Gallio Termékbevezető kampány";
-  const company = "Galliocoop Zrt.";
+  const router = useRouter();
+  const { data, status, fetch } = useGetProject(
+    String(router.query.project)
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, ""),
+  );
 
-  const servicesList = useMemo(() => {
-    return [
-      {
-        title: "Feladat",
-        data: " — Termékbevezető kampány készítése a Gallio négy új terméke számára.",
-      },
-      {
-        title: "Megoldás",
-        data: " — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec interdum neque, sit amet dapibus nibh. Mauris sed neque eu nulla ultrices bibendum id nec massa.",
-      },
-    ];
-  }, []);
+  useEffect(() => {
+    if (router.isReady) {
+      void fetch({
+        queryKey: String(router.query.project)
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, ""),
+      });
+    }
+  }, [router]);
 
   const deviceState = useGetUserAgent();
 
   return (
     <section className={"w-full h-auto flex flex-col min-h-screen"}>
-      <div className={"flex flex-col w-full md:px-8 px-2 pb-8"}>
-        <div className="pt-14">
-          <ProjectTags darkMode tagArray={tags} />
-        </div>
-        <PageTitle className="text-white pt-4" text={title} />
-        <SubTitle className="text-white pt-4 pb-8" text={company} />
-        {deviceState === "mobile" ? (
-          <ProjectGrid columns={5} rows={15}>
-            <ProjectGridItem
-              colSpan={5}
-              imgSrc={"/images/projects/gallio.gif"}
-              rowEnd={4}
-              rowStart={1}
+      {data !== undefined && status === "success" ? (
+        <>
+          <div className={"flex flex-col w-full md:px-8 px-2 pb-8"}>
+            <div className="pt-14">
+              <ProjectTags darkMode tagArray={data?.attributes.data.tags} />
+            </div>
+            <PageTitle
+              className="text-white pt-4"
+              text={data?.attributes.data.title}
             />
-            <ProjectGridItem
-              colSpan={5}
-              imgSrc={"/images/projects/ds.gif"}
-              rowEnd={7}
-              rowStart={4}
+            <SubTitle
+              className="text-white pt-4 pb-8"
+              text={data?.attributes.data.company}
             />
-            <ProjectGridItem
-              colSpan={5}
-              imgSrc={"/images/projects/gallio2.gif"}
-              rowEnd={10}
-              rowStart={7}
-            />
-            <ProjectGridItem
-              colSpan={5}
-              imgSrc={"/images/projects/gallio4.png"}
-              rowEnd={13}
-              rowStart={10}
-            />
-            <ProjectGridItem
-              colSpan={5}
-              imgSrc={"/images/projects/gallio3.png"}
-              rowEnd={16}
-              rowStart={13}
-            />
-          </ProjectGrid>
-        ) : (
-          <ProjectGrid columns={7} rows={19}>
-            <ProjectGridItem
-              colEnd={8}
-              colStart={1}
-              imgSrc={"/images/projects/gallio.gif"}
-              rowEnd={8}
-              rowStart={1}
-            />
-            <ProjectGridItem
-              colEnd={5}
-              colStart={1}
-              imgSrc={"/images/projects/ds.gif"}
-              rowEnd={14}
-              rowStart={8}
-            />
-            <ProjectGridItem
-              colEnd={8}
-              colStart={5}
-              imgSrc={"/images/projects/gallio2.gif"}
-              rowEnd={11}
-              rowStart={8}
-            />
-            <ProjectGridItem
-              colEnd={5}
-              colStart={1}
-              imgSrc={"/images/projects/gallio4.png"}
-              rowEnd={20}
-              rowStart={14}
-            />
-            <ProjectGridItem
-              colEnd={8}
-              colStart={5}
-              imgSrc={"/images/projects/gallio3.png"}
-              rowEnd={20}
-              rowStart={16}
-            />
-          </ProjectGrid>
-        )}
-        <div className="pt-6">
-          {servicesList.map(service => {
-            return (
-              <ListItem
-                key={service.title}
-                dark={false}
-                data={service.data}
-                title={service.title}
-              />
-            );
-          })}
-        </div>
-      </div>
-      {deviceState === "mobile" ? (
-        <RelatedProjects
-          gridColumns={5}
-          gridRows={7}
-          title="Kapcsolódó projektek"
-        >
-          <ProjectGridItem
-            colEnd={5}
-            colStart={1}
-            imgSrc={"/images/projects/ikea-demo.gif"}
-            rowEnd={4}
-            rowStart={1}
-            tagArray={["advertising"]}
-            title={"mkb"}
-          />
-          <ProjectGridItem
-            colEnd={5}
-            colStart={1}
-            imgSrc={"/images/projects/mkb-lakasfelujitas.gif"}
-            rowEnd={7}
-            rowStart={4}
-            tagArray={["branding", "advertising"]}
-            title={"épkar"}
-          />
-        </RelatedProjects>
-      ) : (
-        <RelatedProjects
-          gridColumns={7}
-          gridRows={6}
-          title="Kapcsolódó projektek"
-        >
-          <ProjectGridItem
-            colEnd={8}
-            colStart={5}
-            imgSrc={"/images/projects/mkb-lakasfelujitas.gif"}
-            rowEnd={7}
-            rowStart={3}
-            tagArray={["branding", "advertising"]}
-            title={"épkar"}
-          />
-          <ProjectGridItem
-            colEnd={5}
-            colStart={1}
-            imgSrc={"/images/projects/ikea-demo.gif"}
-            rowEnd={7}
-            rowStart={1}
-            tagArray={["branding"]}
-            title={"mkb"}
-          />
-        </RelatedProjects>
-      )}
+            {deviceState === "mobile" ? (
+              <ProjectGrid
+                columns={5}
+                rows={data.attributes.ProjectGridItem.length * 3}
+              >
+                {data.attributes.ProjectGridItem.map((project, i) => {
+                  const { tags, title } = project.data;
+
+                  return (
+                    <ProjectGridItem
+                      key={project.id}
+                      colSpan={5}
+                      imgSrc={
+                        String(process.env.NEXT_PUBLIC_API_URL) +
+                        project.image.data.attributes.url
+                      }
+                      rowEnd={i + 4 + i * 2}
+                      rowStart={i + 1 + i * 2}
+                      tagArray={tags}
+                      title={title}
+                    />
+                  );
+                })}
+              </ProjectGrid>
+            ) : (
+              <ProjectGrid
+                columns={7}
+                rows={data.attributes.ProjectGridItem.at(-1)?.data.rowEnd ?? 1}
+              >
+                {data.attributes.ProjectGridItem.map(project => {
+                  const { tags, title, colEnd, colStart, rowEnd, rowStart } =
+                    project.data;
+
+                  return (
+                    <ProjectGridItem
+                      key={project.id}
+                      colEnd={colEnd}
+                      colStart={colStart}
+                      imgSrc={
+                        String(process.env.NEXT_PUBLIC_API_URL) +
+                        project.image.data.attributes.url
+                      }
+                      rowEnd={rowEnd}
+                      rowStart={rowStart}
+                      tagArray={tags}
+                      title={title}
+                    />
+                  );
+                })}
+              </ProjectGrid>
+            )}
+            <div className="pt-6">
+              {data.attributes.list?.map(service => {
+                return (
+                  <ListItem
+                    key={service.data.title}
+                    dark={false}
+                    data={service.data.data}
+                    title={service.data.title}
+                  />
+                );
+              })}
+            </div>
+          </div>
+          {deviceState === "mobile" ? (
+            <RelatedProjects
+              gridColumns={5}
+              gridRows={data.attributes.relatedProjects.length * 4}
+              title="Kapcsolódó projektek"
+            >
+              {data.attributes.relatedProjects.map((project, i) => {
+                const { tags, title } = project.data;
+
+                return (
+                  <ProjectGridItem
+                    key={project.id}
+                    colSpan={5}
+                    imgSrc={
+                      String(process.env.NEXT_PUBLIC_API_URL) +
+                      project.image.data.attributes.url
+                    }
+                    rowEnd={i + 4 + i * 2}
+                    rowStart={i + 1 + i * 2}
+                    tagArray={tags}
+                    title={title}
+                  />
+                );
+              })}
+            </RelatedProjects>
+          ) : (
+            <RelatedProjects
+              gridColumns={7}
+              gridRows={
+                data.attributes.relatedProjects.at(-1)?.data.rowEnd ?? 1
+              }
+              title="Kapcsolódó projektek"
+            >
+              {data.attributes.relatedProjects.map(project => {
+                const { tags, title, colEnd, colStart, rowEnd, rowStart } =
+                  project.data;
+
+                return (
+                  <ProjectGridItem
+                    key={project.id}
+                    colEnd={colEnd}
+                    colStart={colStart}
+                    imgSrc={
+                      String(process.env.NEXT_PUBLIC_API_URL) +
+                      project.image.data.attributes.url
+                    }
+                    rowEnd={rowEnd}
+                    rowStart={rowStart}
+                    tagArray={tags}
+                    title={title}
+                  />
+                );
+              })}
+            </RelatedProjects>
+          )}
+        </>
+      ) : null}
     </section>
   );
 };
