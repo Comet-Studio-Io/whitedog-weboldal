@@ -6,7 +6,7 @@ const axiosHeaders = {
 };
 
 const apiBaseUrl = `${
-  process.env.NEXT_PUBLIC_API_URL ?? "localhost:1337"
+  process.env.NEXT_PUBLIC_API_URL ?? "https://whitedog-weboldal.herokuapp.com/"
 }/api/`;
 const apiParams = { populate: "*" };
 
