@@ -60,10 +60,8 @@ const ProjectsSectionComponent: FC = () => {
               const project = data.attributes.ProjectGridItem;
 
               console.log(
-                `
-                ${String(process.env.NEXT_PUBLIC_API_URL)}/api/upload/files/${
-                  project.image.data.id
-                }`,
+                String(process.env.NEXT_PUBLIC_API_URL) +
+                  project.image.data.attributes.url,
               );
 
               return (
@@ -71,10 +69,10 @@ const ProjectsSectionComponent: FC = () => {
                   key={project.id}
                   colEnd={project.data.colEnd}
                   colStart={project.data.colStart}
-                  imgSrc={`
-                ${String(process.env.NEXT_PUBLIC_API_URL)}/api/upload/files/${
-                    project.image.data.id
-                  }`}
+                  imgSrc={
+                    String(process.env.NEXT_PUBLIC_API_URL) +
+                    project.image.data.attributes.url
+                  }
                   rowEnd={project.data.rowEnd}
                   rowStart={project.data.rowStart}
                   tagArray={project.data.tags}
