@@ -54,21 +54,29 @@ const ProjectsSectionComponent: FC = () => {
             columns={7}
             rows={data.at(-1)?.attributes.ProjectGridItem.data.rowEnd ?? 1}
           >
-            {data.map(project => (
-              <ProjectGridItem
-                key={project.id}
-                colEnd={project.attributes.ProjectGridItem.data.colEnd}
-                colStart={project.attributes.ProjectGridItem.data.colStart}
-                imgSrc={
-                  String(process.env.NEXT_PUBLIC_API_URL) +
-                  project.attributes.ProjectGridItem.image.data.attributes.url
-                }
-                rowEnd={project.attributes.ProjectGridItem.data.rowEnd}
-                rowStart={project.attributes.ProjectGridItem.data.rowStart}
-                tagArray={project.attributes.ProjectGridItem.data.tags}
-                title={project.attributes.ProjectGridItem.data.title}
-              />
-            ))}
+            {data.map(project => {
+              console.log(
+                String(process.env.NEXT_PUBLIC_API_URL) +
+                  project.attributes.ProjectGridItem.image.data.attributes.url,
+                process.env.NEXT_PUBLIC_API_URL,
+              );
+
+              return (
+                <ProjectGridItem
+                  key={project.id}
+                  colEnd={project.attributes.ProjectGridItem.data.colEnd}
+                  colStart={project.attributes.ProjectGridItem.data.colStart}
+                  imgSrc={
+                    String(process.env.NEXT_PUBLIC_API_URL) +
+                    project.attributes.ProjectGridItem.image.data.attributes.url
+                  }
+                  rowEnd={project.attributes.ProjectGridItem.data.rowEnd}
+                  rowStart={project.attributes.ProjectGridItem.data.rowStart}
+                  tagArray={project.attributes.ProjectGridItem.data.tags}
+                  title={project.attributes.ProjectGridItem.data.title}
+                />
+              );
+            })}
           </ProjectGrid>
         ))}
 
