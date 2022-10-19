@@ -62,7 +62,7 @@ const ProjectsSectionComponent: FC = () => {
               console.log(
                 `
                 ${String(process.env.NEXT_PUBLIC_API_URL)}/api/upload/files/${
-                  project.image.id
+                  project.image.data.id
                 }`,
               );
 
@@ -73,7 +73,7 @@ const ProjectsSectionComponent: FC = () => {
                   colStart={project.data.colStart}
                   imgSrc={`
                 ${String(process.env.NEXT_PUBLIC_API_URL)}/api/upload/files/${
-                    project.image.id
+                    project.image.data.id
                   }`}
                   rowEnd={project.data.rowEnd}
                   rowStart={project.data.rowStart}

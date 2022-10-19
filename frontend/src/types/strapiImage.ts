@@ -18,6 +18,6 @@ export interface StrapiImage {
       url: string;
       width: number;
     };
+    id: number;
   };
-  id: number;
 }
