@@ -56,32 +56,29 @@ const ProjectsSectionComponent: FC = () => {
             columns={7}
             rows={data.at(-1)?.attributes.ProjectGridItem.data.rowEnd ?? 1}
           >
-            {data.map(project => {
+            {data.map(data => {
+              const project = data.attributes.ProjectGridItem;
+
               console.log(
                 `
                 ${String(process.env.NEXT_PUBLIC_API_URL)}/api/upload/files/${
-                  project.attributes.ProjectGridItem.image.data.attributes
-                    .hash +
-                  project.attributes.ProjectGridItem.image.data.attributes.ext
+                  project.image.id
                 }`,
-                process.env.NEXT_PUBLIC_API_URL,
               );
 
               return (
                 <ProjectGridItem
                   key={project.id}
-                  colEnd={project.attributes.ProjectGridItem.data.colEnd}
-                  colStart={project.attributes.ProjectGridItem.data.colStart}
+                  colEnd={project.data.colEnd}
+                  colStart={project.data.colStart}
                   imgSrc={`
                 ${String(process.env.NEXT_PUBLIC_API_URL)}/api/upload/files/${
-                    project.attributes.ProjectGridItem.image.data.attributes
-                      .hash +
-                    project.attributes.ProjectGridItem.image.data.attributes.ext
+                    project.image.id
                   }`}
-                  rowEnd={project.attributes.ProjectGridItem.data.rowEnd}
-                  rowStart={project.attributes.ProjectGridItem.data.rowStart}
-                  tagArray={project.attributes.ProjectGridItem.data.tags}
-                  title={project.attributes.ProjectGridItem.data.title}
+                  rowEnd={project.data.rowEnd}
+                  rowStart={project.data.rowStart}
+                  tagArray={project.data.tags}
+                  title={project.data.title}
                 />
               );
             })}
