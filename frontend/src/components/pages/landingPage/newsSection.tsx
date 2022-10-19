@@ -4,7 +4,7 @@ import { useDraggable } from "react-use-draggable-scroll";
 
 import { useGetNews } from "../../../hooks/useGetNews";
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
-import { NewsNavbarTypes } from "../../../types/newsNavbarTypes";
+import { NewsFilterTypes } from "../../../types/newsFilterTypes";
 import { Navbar } from "../../common/Navbar/Navbar";
 import { SlideshowItem } from "../../common/Slideshow/SlideshowItem";
 import { Title } from "../../common/Title/Title";
@@ -14,7 +14,7 @@ const NewsSectionComponent: FC = () => {
 
   const { data } = useGetNews();
 
-  const navbarOptions: NewsNavbarTypes[] = useMemo(() => {
+  const navbarOptions: NewsFilterTypes[] = useMemo(() => {
     return ["Összes", "Díjak", "Publikációk", "Sajtómegjelenések"];
   }, []);
 

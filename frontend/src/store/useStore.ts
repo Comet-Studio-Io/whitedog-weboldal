@@ -1,12 +1,12 @@
 import create from "zustand";
 
-import { NewsNavbarTypes } from "../types/newsNavbarTypes";
-import { ProjectNavbarTypes } from "../types/projectsNavbarTypes";
+import { NewsFilterTypes } from "../types/newsFilterTypes";
+import { ProjectFilterTypes } from "../types/projectFilterTypes";
 
 interface StoreTypes {
   selectedTag: string[] | undefined;
-  projectFilter: ProjectNavbarTypes;
-  newsFilter: NewsNavbarTypes;
+  projectFilter: ProjectFilterTypes;
+  newsFilter: NewsFilterTypes;
 }
 
 export const useZustandStore = create<StoreTypes>(set => ({

@@ -1,14 +1,14 @@
 import { memo, FC, useMemo } from "react";
 
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
-import { ProjectNavbarTypes } from "../../../types/projectsNavbarTypes";
+import { ProjectFilterTypes } from "../../../types/projectFilterTypes";
 import { Navbar } from "../../common/Navbar/Navbar";
 import { ProjectGrid } from "../../common/ProjectGrid/ProjectGrid";
 import { ProjectGridItem } from "../../common/ProjectGrid/ProjectGridItem";
 import { Title } from "../../common/Title/Title";
 
 const ProjectsPageComponent: FC = (): JSX.Element => {
-  const navbarOptions: ProjectNavbarTypes[] = useMemo(() => {
+  const navbarOptions: ProjectFilterTypes[] = useMemo(() => {
     return ["Összes", "Arculat", "Filmgyártás", "Webfejlesztés"];
   }, []);
 
