@@ -1,3 +1,5 @@
+import { StrapiImage } from "./strapiImage";
+
 export interface GetNewsTypes {
   attributes: {
     data: {
@@ -5,29 +7,7 @@ export interface GetNewsTypes {
       date: string;
       filter: string;
     };
-    image: {
-      data: {
-        attributes: {
-          alternativeText: string;
-          caption: string;
-          createdAt: string;
-          ext: string;
-          formats: null | string;
-          hash: string;
-          height: number;
-          mime: string;
-          name: string;
-          previewUrl: null | string;
-          provider: string;
-          provider_metadata: null | string;
-          size: number;
-          updatedAt: string;
-          url: string;
-          width: number;
-        };
-      };
-      id: number;
-    };
+    image: StrapiImage;
     createdAt: string;
     publishedAt: string;
     updatedAt: string;
