@@ -34,22 +34,24 @@ const ProjectsSectionComponent: FC = () => {
         status === "success" &&
         (deviceState === "mobile" ? (
           <ProjectGrid columns={5} rows={data.length * 3}>
-            {data.map((project, i) => (
-              <ProjectGridItem
-                key={project.id}
-                colSpan={5}
-                imgSrc={`
-                ${String(process.env.NEXT_PUBLIC_API_URL)}/api/upload/files/${
-                  project.attributes.ProjectGridItem.image.data.attributes
-                    .hash +
-                  project.attributes.ProjectGridItem.image.data.attributes.ext
-                }`}
-                rowEnd={i + 4 + i * 2}
-                rowStart={i + 1 + i * 2}
-                tagArray={project.attributes.ProjectGridItem.data.tags}
-                title={project.attributes.ProjectGridItem.data.title}
-              />
-            ))}
+            {data.map((data, i) => {
+              const project = data.attributes.ProjectGridItem;
+
+              return (
+                <ProjectGridItem
+                  key={project.id}
+                  colSpan={5}
+                  imgSrc={
+                    String(process.env.NEXT_PUBLIC_API_URL) +
+                    project.image.data.attributes.url
+                  }
+                  rowEnd={i + 4 + i * 2}
+                  rowStart={i + 1 + i * 2}
+                  tagArray={project.data.tags}
+                  title={project.data.title}
+                />
+              );
+            })}
           </ProjectGrid>
         ) : (
           <ProjectGrid
