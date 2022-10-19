@@ -38,10 +38,12 @@ const ProjectsSectionComponent: FC = () => {
               <ProjectGridItem
                 key={project.id}
                 colSpan={5}
-                imgSrc={
-                  String(process.env.NEXT_PUBLIC_API_URL) +
-                  project.attributes.ProjectGridItem.image.data.attributes.url
-                }
+                imgSrc={`
+                ${String(process.env.NEXT_PUBLIC_API_URL)}/api/upload/files/${
+                  project.attributes.ProjectGridItem.image.data.attributes
+                    .hash +
+                  project.attributes.ProjectGridItem.image.data.attributes.ext
+                }`}
                 rowEnd={i + 4 + i * 2}
                 rowStart={i + 1 + i * 2}
                 tagArray={project.attributes.ProjectGridItem.data.tags}
@@ -56,8 +58,12 @@ const ProjectsSectionComponent: FC = () => {
           >
             {data.map(project => {
               console.log(
-                String(process.env.NEXT_PUBLIC_API_URL) +
-                  project.attributes.ProjectGridItem.image.data.attributes.url,
+                `
+                ${String(process.env.NEXT_PUBLIC_API_URL)}/api/upload/files/${
+                  project.attributes.ProjectGridItem.image.data.attributes
+                    .hash +
+                  project.attributes.ProjectGridItem.image.data.attributes.ext
+                }`,
                 process.env.NEXT_PUBLIC_API_URL,
               );
 
@@ -66,10 +72,12 @@ const ProjectsSectionComponent: FC = () => {
                   key={project.id}
                   colEnd={project.attributes.ProjectGridItem.data.colEnd}
                   colStart={project.attributes.ProjectGridItem.data.colStart}
-                  imgSrc={
-                    String(process.env.NEXT_PUBLIC_API_URL) +
-                    project.attributes.ProjectGridItem.image.data.attributes.url
-                  }
+                  imgSrc={`
+                ${String(process.env.NEXT_PUBLIC_API_URL)}/api/upload/files/${
+                    project.attributes.ProjectGridItem.image.data.attributes
+                      .hash +
+                    project.attributes.ProjectGridItem.image.data.attributes.ext
+                  }`}
                   rowEnd={project.attributes.ProjectGridItem.data.rowEnd}
                   rowStart={project.attributes.ProjectGridItem.data.rowStart}
                   tagArray={project.attributes.ProjectGridItem.data.tags}
