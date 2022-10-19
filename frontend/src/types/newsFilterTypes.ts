@@ -1,4 +1,4 @@
-export type NewsNavbarTypes =
+export type NewsFilterTypes =
   | "Összes"
   | "Díjak"
   | "Publikációk"
