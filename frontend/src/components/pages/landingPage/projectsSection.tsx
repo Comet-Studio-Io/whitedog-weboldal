@@ -58,8 +58,6 @@ const ProjectsSectionComponent: FC = () => {
             {data.map(data => {
               const project = data.attributes.ProjectGridItem;
 
-              console.log(project.image.data?.attributes?.url, project);
-
               return (
                 <ProjectGridItem
                   key={project.id}
