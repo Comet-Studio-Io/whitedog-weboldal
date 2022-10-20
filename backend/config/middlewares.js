@@ -6,7 +6,7 @@ module.exports = [
     config: {
       enabled: true,
       headers: '*',
-      origin: ['http://localhost:1337', 'https://whitedog-weboldal.herokuapp.com']
+      origin: ['http://localhost:1337', 'https://whitedog-weboldal.herokuapp.com', "https://whitedog-weboldal.vercel.app"]
     }
   },
   'strapi::poweredBy',
