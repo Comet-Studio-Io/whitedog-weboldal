@@ -1,20 +1,25 @@
 module.exports = [
-  'strapi::errors',
-  'strapi::security',
+  "strapi::errors",
   {
-    name: 'strapi::cors',
+    name: "strapi::security",
     config: {
-      enabled: true,
-      headers: '*',
-      origin: ['http://localhost:1337', 'https://whitedog-weboldal.herokuapp.com', "https://whitedog-weboldal.vercel.app"]
-    }
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          "connect-src": ["'self'", "https:"],
+          "img-src": ["'self'", "data:", "blob:", "res.cloudinary.com"],
+          "media-src": ["'self'", "data:", "blob:", "res.cloudinary.com"],
+          upgradeInsecureRequests: null,
+        },
+      },
+    },
   },
-  'strapi::poweredBy',
-  'strapi::logger',
-  'strapi::query',
-  'strapi::body',
-  'strapi::session',
-  'strapi::favicon',
-  'strapi::public',
+  "strapi::cors",
+  "strapi::poweredBy",
+  "strapi::logger",
+  "strapi::query",
+  "strapi::body",
+  "strapi::session",
+  "strapi::favicon",
+  "strapi::public",
 ];
-

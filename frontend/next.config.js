@@ -10,6 +10,7 @@ const nextConfig = {
       "localhost",
       "whitedog-weboldal.vercel.app",
       "whitedog-weboldal.herokuapp.com",
+      "res.cloudinary.com"
     ],
   },
 };
