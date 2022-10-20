@@ -5,9 +5,13 @@ const withSvgr = require("next-plugin-svgr");
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  images:{
-    domains: ["localhost"]
-  }
-}
+  images: {
+    domains: [
+      "localhost",
+      "whitedog-weboldal.vercel.app",
+      "whitedog-weboldal.herokuapp.com",
+    ],
+  },
+};
 
 module.exports = withSvgr(nextConfig);
