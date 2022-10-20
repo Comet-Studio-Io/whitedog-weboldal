@@ -46,10 +46,7 @@ const NewsSectionComponent: FC = () => {
                 key={newsItem.id}
                 date={newsItem.attributes.data.date}
                 filterType={newsItem.attributes.data.filter}
-                src={
-                  String(process.env.NEXT_PUBLIC_API_URL) +
-                  newsItem.attributes.image.data.attributes.url
-                }
+                src={newsItem.attributes.image.data.attributes.url}
                 text={newsItem.attributes.data.title}
               />
             );
