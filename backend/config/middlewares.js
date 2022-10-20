@@ -1,7 +1,14 @@
 module.exports = [
   'strapi::errors',
   'strapi::security',
-  'strapi::cors',
+  {
+    name: 'strapi::cors',
+    config: {
+      enabled: true,
+      headers: '*',
+      origin: ['http://localhost:1337', 'https://whitedog-weboldal.herokuapp.com']
+    }
+  },
   'strapi::poweredBy',
   'strapi::logger',
   'strapi::query',
@@ -10,3 +17,4 @@ module.exports = [
   'strapi::favicon',
   'strapi::public',
 ];
+
