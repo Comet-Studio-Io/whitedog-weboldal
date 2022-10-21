@@ -60,10 +60,7 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
                     <ProjectGridItem
                       key={project.id}
                       colSpan={5}
-                      imgSrc={
-                        String(process.env.NEXT_PUBLIC_API_URL) +
-                        project.image.data.attributes.url
-                      }
+                      imgSrc={project.image.data.attributes.url}
                       rowEnd={i + 4 + i * 2}
                       rowStart={i + 1 + i * 2}
                       tagArray={tags}
@@ -86,10 +83,7 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
                       key={project.id}
                       colEnd={colEnd}
                       colStart={colStart}
-                      imgSrc={
-                        String(process.env.NEXT_PUBLIC_API_URL) +
-                        project.image.data.attributes.url
-                      }
+                      imgSrc={project.image.data.attributes.url}
                       rowEnd={rowEnd}
                       rowStart={rowStart}
                       tagArray={tags}
@@ -126,10 +120,7 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
                     <ProjectGridItem
                       key={project.id}
                       colSpan={5}
-                      imgSrc={
-                        String(process.env.NEXT_PUBLIC_API_URL) +
-                        project.image.data.attributes.url
-                      }
+                      imgSrc={project.image.data.attributes.url}
                       rowEnd={i + 4 + i * 2}
                       rowStart={i + 1 + i * 2}
                       tagArray={tags}
@@ -153,10 +144,7 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
                       key={project.id}
                       colEnd={colEnd}
                       colStart={colStart}
-                      imgSrc={
-                        String(process.env.NEXT_PUBLIC_API_URL) +
-                        project.image.data.attributes.url
-                      }
+                      imgSrc={project.image.data.attributes.url}
                       rowEnd={rowEnd}
                       rowStart={rowStart}
                       tagArray={tags}
