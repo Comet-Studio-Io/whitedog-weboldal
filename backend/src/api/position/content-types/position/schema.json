@@ -4,25 +4,19 @@
   "info": {
     "singularName": "position",
     "pluralName": "positions",
-    "displayName": "Positions",
-    "description": ""
+    "displayName": "Positions"
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
-    "data": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "json",
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
       "required": true
     }
   }

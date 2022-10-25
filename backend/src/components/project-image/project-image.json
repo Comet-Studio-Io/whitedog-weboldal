@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_project_image_project_images",
+  "info": {
+    "displayName": "project_image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "colEnd": {
+      "type": "integer",
+      "default": 8,
+      "max": 8,
+      "min": 1,
+      "required": true
+    },
+    "colStart": {
+      "type": "integer",
+      "default": 1,
+      "required": true,
+      "max": 8,
+      "min": 1
+    },
+    "rowStart": {
+      "type": "integer",
+      "min": 1,
+      "required": true
+    },
+    "rowEnd": {
+      "type": "integer",
+      "min": 1,
+      "required": true
+    },
+    "featured_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

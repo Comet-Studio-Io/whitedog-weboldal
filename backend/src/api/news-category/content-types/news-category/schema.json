@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_categories",
+  "info": {
+    "singularName": "news-category",
+    "pluralName": "news-categories",
+    "displayName": "News categories",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "news": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::new.new",
+      "inversedBy": "news_categories"
+    }
+  }
+}

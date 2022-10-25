@@ -10,22 +10,49 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
-    "ProjectGridItem": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "project-grid-item.related-projects",
+    "title": {
+      "type": "string",
       "required": true
+    },
+    "colEnd": {
+      "type": "integer",
+      "required": true,
+      "default": 8,
+      "max": 8,
+      "min": 1
+    },
+    "colStart": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "max": 8,
+      "default": 1
+    },
+    "rowEnd": {
+      "type": "integer",
+      "required": true
+    },
+    "rowStart": {
+      "type": "integer",
+      "required": true,
+      "default": 1,
+      "min": 1
+    },
+    "featured_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "project_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project-categorie.project-categorie",
+      "inversedBy": "projects"
     }
   }
 }

@@ -3,8 +3,8 @@ module.exports = ({ env }) => ({
     enabled: true,
     config: {
       contentTypes: {
-        article: {
-          field: 'slug',
+        "project-detail": {
+          field: 'URL',
           references: 'title',
         },
       },
