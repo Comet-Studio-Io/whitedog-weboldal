@@ -6,16 +6,17 @@ import {
 } from "react-query";
 
 import { getProject } from "../api/getProject";
-import { GetProjectTypes } from "../types/getProjectTypes";
+import { StrapiProject } from "../types/strapiProject";
+import { StrapiTypes } from "../types/strapiTypes";
 
 export const useGetProject = (
   project: string,
 ): {
-  data: GetProjectTypes | undefined;
+  data: StrapiTypes<StrapiProject> | undefined;
   status: "idle" | "error" | "loading" | "success";
   fetch: <TPageData>(
     options?: (RefetchOptions & RefetchQueryFilters<TPageData>) | undefined,
-  ) => Promise<QueryObserverResult<GetProjectTypes, unknown>>;
+  ) => Promise<QueryObserverResult<StrapiTypes<StrapiProject>, unknown>>;
 } => {
   const {
     data,

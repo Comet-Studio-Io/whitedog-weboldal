@@ -1,10 +1,11 @@
 import { useQuery } from "react-query";
 
 import { getNews } from "../api/getNews";
-import { GetNewsTypes } from "../types/getNewsTypes";
+import { StrapiNews } from "../types/strapiNews";
+import { StrapiTypes } from "../types/strapiTypes";
 
 export const useGetNews = (): {
-  data: GetNewsTypes[] | undefined;
+  data: StrapiTypes<StrapiNews[]> | undefined;
   status: "idle" | "error" | "loading" | "success";
 } => {
   const { data, status } = useQuery("news", async () => {

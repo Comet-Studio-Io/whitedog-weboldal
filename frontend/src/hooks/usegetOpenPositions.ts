@@ -1,10 +1,11 @@
 import { useQuery } from "react-query";
 
 import { getOpenPositions } from "../api/getOpenPositions";
-import { GetListItemTypes } from "../types/getListItemTypes";
+import { StrapiListItem } from "../types/strapiListItem";
+import { StrapiTypes } from "../types/strapiTypes";
 
 export const useGetOpenPositions = (): {
-  data: GetListItemTypes[] | undefined;
+  data: Array<StrapiTypes<StrapiListItem>> | undefined;
   status: "idle" | "error" | "loading" | "success";
 } => {
   const { data, status } = useQuery("positions", async () => {
