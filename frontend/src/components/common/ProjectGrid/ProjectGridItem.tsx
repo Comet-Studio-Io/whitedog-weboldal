@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { FC, memo, useCallback } from "react";
 
 import { ProjectFilterTypes } from "../../../types/projectFilterTypes";
+import { StrapiCategory } from "../../../types/strapiRelatedItem";
 import { webPaths } from "../../../webpaths";
 
 import { ProjectGridTitle } from "./ProjectGridTitle";
@@ -17,7 +18,7 @@ interface ProjectGridItemTypes {
   rowEnd: number;
   title?: string;
   imgSrc: string;
-  tagArray?: string[];
+  tagArray?: StrapiCategory["data"];
   filterType?: ProjectFilterTypes;
 }
 

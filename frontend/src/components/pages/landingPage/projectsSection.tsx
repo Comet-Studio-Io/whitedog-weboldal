@@ -35,39 +35,36 @@ const ProjectsSectionComponent: FC = () => {
         (deviceState === "mobile" ? (
           <ProjectGrid columns={5} rows={data.length * 3}>
             {data.map((data, i) => {
-              const project = data.attributes.ProjectGridItem;
+              const project = data.attributes;
 
               return (
                 <ProjectGridItem
-                  key={project.id}
+                  key={data.id}
                   colSpan={5}
-                  imgSrc={project.image.data?.attributes?.url ?? ""}
+                  imgSrc={project.featured_image.data?.attributes?.url ?? ""}
                   rowEnd={i + 4 + i * 2}
                   rowStart={i + 1 + i * 2}
-                  tagArray={project.data.tags}
-                  title={project.data.title}
+                  tagArray={project.project_categories.data}
+                  title={project.title}
                 />
               );
             })}
           </ProjectGrid>
         ) : (
-          <ProjectGrid
-            columns={7}
-            rows={data.at(-1)?.attributes.ProjectGridItem.data.rowEnd ?? 1}
-          >
+          <ProjectGrid columns={7} rows={data.at(-1)?.attributes.rowEnd ?? 1}>
             {data.map(data => {
-              const project = data.attributes.ProjectGridItem;
+              const project = data.attributes;
 
               return (
                 <ProjectGridItem
-                  key={project.id}
-                  colEnd={project.data.colEnd}
-                  colStart={project.data.colStart}
-                  imgSrc={project.image.data?.attributes?.url ?? ""}
-                  rowEnd={project.data.rowEnd}
-                  rowStart={project.data.rowStart}
-                  tagArray={project.data.tags}
-                  title={project.data.title}
+                  key={data.id}
+                  colEnd={project.colEnd}
+                  colStart={project.colStart}
+                  imgSrc={project?.featured_image.data.attributes?.url ?? ""}
+                  rowEnd={project.rowEnd}
+                  rowStart={project.rowStart}
+                  tagArray={project.project_categories.data}
+                  title={project.title}
                 />
               );
             })}

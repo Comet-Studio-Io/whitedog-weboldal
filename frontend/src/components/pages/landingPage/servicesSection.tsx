@@ -13,9 +13,9 @@ const ServicesSectionComponent: FC = () => {
       {data?.map(service => {
         return (
           <ListItem
-            key={service.attributes.data.title}
-            data={service.attributes.data.data}
-            title={service.attributes.data.title}
+            key={service.attributes.title}
+            data={service.attributes.description}
+            title={service.attributes.title}
           />
         );
       })}

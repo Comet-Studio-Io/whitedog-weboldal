@@ -44,10 +44,12 @@ const NewsSectionComponent: FC = () => {
             return (
               <SlideshowItem
                 key={newsItem.id}
-                date={newsItem.attributes.data.date}
-                filterType={newsItem.attributes.data.filter}
-                src={newsItem.attributes.image.data.attributes.url}
-                text={newsItem.attributes.data.title}
+                date={newsItem.attributes.Date}
+                filterType={
+                  newsItem.attributes.news_categories.data[0].attributes.name
+                }
+                src={newsItem.attributes.featured_image.data.attributes.url}
+                text={newsItem.attributes.Title}
               />
             );
           })}

@@ -1,9 +1,11 @@
 import { FC, memo } from "react";
 
+import { StrapiCategory } from "../../../types/strapiRelatedItem";
+
 import { ProjectTag } from "./ProjectTag";
 
 interface ProjectTagsTypes {
-  tagArray: string[];
+  tagArray: StrapiCategory["data"];
   darkMode?: boolean;
 }
 
@@ -14,7 +16,13 @@ const ProjectTagsComponent: FC<ProjectTagsTypes> = ({
   return (
     <div className="flex flex-row">
       {tagArray?.map(tag => {
-        return <ProjectTag key={tag} darkMode={darkMode} text={tag} />;
+        return (
+          <ProjectTag
+            key={tag.id}
+            darkMode={darkMode}
+            text={tag.attributes.name}
+          />
+        );
       })}
     </div>
   );
