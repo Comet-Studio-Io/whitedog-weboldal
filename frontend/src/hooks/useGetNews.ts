@@ -5,7 +5,7 @@ import { StrapiNews } from "../types/strapiNews";
 import { StrapiTypes } from "../types/strapiTypes";
 
 export const useGetNews = (): {
-  data: StrapiTypes<StrapiNews[]> | undefined;
+  data: Array<StrapiTypes<StrapiNews>> | undefined;
   status: "idle" | "error" | "loading" | "success";
 } => {
   const { data, status } = useQuery("news", async () => {

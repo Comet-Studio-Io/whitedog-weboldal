@@ -5,7 +5,7 @@ import { StrapiTypes } from "../types/strapiTypes";
 import { ajax } from "../utils/ajax";
 
 export const getNews = async (): Promise<
-  AxiosResponse<StrapiTypes<StrapiNews[]>>
+  AxiosResponse<Array<StrapiTypes<StrapiNews>>>
 > => {
   return (await ajax.get("/news")).data;
 };
