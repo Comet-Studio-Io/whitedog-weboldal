@@ -18,7 +18,7 @@ jobs:
           cache-dependency-path: "backend/package-lock.json"
       - run: npm install
         working-directory: "backend"
-      - run: npm build
+      - run: npm run build --clean
         working-directory: "backend"
   deploy-backend:
     needs: [build-backend]
@@ -36,5 +36,5 @@ jobs:
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "whitedog-weboldal"
-          heroku_email: "dev@5martstudio.com"
+          heroku_email: "armand.gonda@5martstudio.com"
           appdir: "backend"
