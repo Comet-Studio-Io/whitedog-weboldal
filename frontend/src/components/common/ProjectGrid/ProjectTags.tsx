@@ -15,13 +15,9 @@ const ProjectTagsComponent: FC<ProjectTagsTypes> = ({
 }) => {
   return (
     <div className="flex flex-row">
-      {tagArray?.map(tag => {
+      {tagArray?.map((tag, i) => {
         return (
-          <ProjectTag
-            key={tag.id}
-            darkMode={darkMode}
-            text={tag.attributes.name}
-          />
+          <ProjectTag key={i} darkMode={darkMode} text={tag.attributes?.name} />
         );
       })}
     </div>
