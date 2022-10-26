@@ -1,5 +1,6 @@
 import { memo, FC, useMemo } from "react";
 
+import { useGetProjects } from "../../../hooks/useGetProjects";
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
 import { ProjectFilterTypes } from "../../../types/projectFilterTypes";
 import { Navbar } from "../../common/Navbar/Navbar";
@@ -14,6 +15,8 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
 
   const deviceState = useGetUserAgent();
 
+  const { data, status } = useGetProjects();
+
   return (
     <section
       className={
@@ -22,157 +25,55 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
     >
       <Title className="text-primary-gray" text="Projektek" />
       <Navbar data={navbarOptions} setZustandItem={"projectFilter"} />
-      {deviceState === "mobile" ? (
-        <ProjectGrid columns={5} rows={21}>
-          <ProjectGridItem
-            colSpan={5}
-            imgSrc={"/images/projects/high-tech-suli.gif"}
-            rowEnd={4}
-            rowStart={1}
-            tagArray={["branding", "advertising"]}
-            title={"high tech suli"}
-          />
-          <ProjectGridItem
-            colSpan={5}
-            imgSrc={"/images/projects/gallio.gif"}
-            rowEnd={7}
-            rowStart={4}
-            tagArray={["branding"]}
-            title={"gallio"}
-          />
-          <ProjectGridItem
-            colSpan={5}
-            imgSrc={"/images/projects/ds.gif"}
-            rowEnd={10}
-            rowStart={7}
-            tagArray={["branding"]}
-            title={"dustin"}
-          />
-          <ProjectGridItem
-            colSpan={5}
-            imgSrc={"/images/projects/mkb-lakasfelujitas.gif"}
-            rowEnd={13}
-            rowStart={10}
-            tagArray={["branding"]}
-            title={"mkb"}
-          />
-          <ProjectGridItem
-            colSpan={5}
-            imgSrc={"/images/projects/ikea-demo.gif"}
-            rowEnd={16}
-            rowStart={13}
-            tagArray={["branding", "advertising"]}
-            title={"épkar"}
-          />
-          <ProjectGridItem
-            colSpan={5}
-            imgSrc={"/images/projects/high-tech-suli.gif"}
-            rowEnd={19}
-            rowStart={16}
-            tagArray={["branding", "advertising"]}
-            title={"high tech suli"}
-          />
-          <ProjectGridItem
-            colSpan={5}
-            imgSrc={"/images/projects/gallio.gif"}
-            rowEnd={22}
-            rowStart={19}
-            tagArray={["branding"]}
-            title={"gallio"}
-          />
-        </ProjectGrid>
-      ) : (
-        <ProjectGrid columns={7} rows={33}>
-          <ProjectGridItem
-            colEnd={5}
-            colStart={1}
-            filterType="Arculat"
-            imgSrc={"/images/projects/epkar.gif"}
-            rowEnd={6}
-            rowStart={1}
-            tagArray={["branding", "advertising", "global"]}
-            title={"épkar"}
-          />
-          <ProjectGridItem
-            colEnd={8}
-            colStart={5}
-            filterType="Arculat"
-            imgSrc={"/images/projects/gallio.gif"}
-            rowEnd={5}
-            rowStart={1}
-            tagArray={["branding", "media"]}
-            title={"gallio"}
-          />
-          <ProjectGridItem
-            colSpan={7}
-            filterType="Filmgyártás"
-            imgSrc={"/images/projects/ds.gif"}
-            rowEnd={15}
-            rowStart={6}
-            tagArray={["branding", "media"]}
-            title={"dustin"}
-          />
-          <ProjectGridItem
-            colEnd={4}
-            colStart={1}
-            filterType="Filmgyártás"
-            imgSrc={"/images/projects/mkb-lakasfelujitas.gif"}
-            rowEnd={22}
-            rowStart={17}
-            tagArray={["branding"]}
-            title={"mkb"}
-          />
-          <ProjectGridItem
-            colEnd={8}
-            colStart={4}
-            filterType="Webfejlesztés"
-            imgSrc={"/images/projects/ikea-demo.gif"}
-            rowEnd={22}
-            rowStart={15}
-            tagArray={["branding", "advertising", "global"]}
-            title={"épkar"}
-          />
-          <ProjectGridItem
-            colEnd={5}
-            colStart={1}
-            filterType="Webfejlesztés"
-            imgSrc={"/images/projects/epkar.gif"}
-            rowEnd={27}
-            rowStart={22}
-            tagArray={["branding", "advertising"]}
-            title={"épkar"}
-          />
-          <ProjectGridItem
-            colEnd={8}
-            colStart={5}
-            filterType="Filmgyártás"
-            imgSrc={"/images/projects/gallio.gif"}
-            rowEnd={26}
-            rowStart={22}
-            tagArray={["branding", "global"]}
-            title={"gallio"}
-          />
-          <ProjectGridItem
-            colEnd={4}
-            colStart={1}
-            filterType="Arculat"
-            imgSrc={"/images/projects/mkb-lakasfelujitas.gif"}
-            rowEnd={34}
-            rowStart={29}
-            tagArray={["branding"]}
-            title={"mkb"}
-          />
-          <ProjectGridItem
-            colEnd={8}
-            colStart={4}
-            imgSrc={"/images/projects/ikea-demo.gif"}
-            rowEnd={34}
-            rowStart={27}
-            tagArray={["branding", "advertising"]}
-            title={"épkar"}
-          />
-        </ProjectGrid>
-      )}
+      {data !== undefined &&
+        status === "success" &&
+        (deviceState === "mobile" ? (
+          <ProjectGrid columns={5} rows={data?.length * 3}>
+            {data.map((project, i) => (
+              <ProjectGridItem
+                key={project.id}
+                colSpan={5}
+                filterType={
+                  project.attributes.project_filter.data.attributes.filter_name
+                }
+                imgSrc={project.attributes.featured_image.data.attributes.url}
+                rowEnd={i + 4 + i * 2}
+                rowStart={i + 1 + i * 2}
+                tagArray={project.attributes.project_categories.data}
+                title={project.attributes.title}
+              />
+            ))}
+          </ProjectGrid>
+        ) : (
+          <ProjectGrid columns={7} rows={data.at(-1)?.attributes.rowEnd ?? 1}>
+            {data.map(project => {
+              const {
+                colEnd,
+                colStart,
+                rowEnd,
+                rowStart,
+                title,
+                project_filter: filter,
+                featured_image: image,
+                project_categories: tags,
+              } = project.attributes;
+
+              return (
+                <ProjectGridItem
+                  key={project.id}
+                  colEnd={colEnd}
+                  colStart={colStart}
+                  filterType={filter.data.attributes.filter_name}
+                  imgSrc={image.data.attributes.url}
+                  rowEnd={rowEnd}
+                  rowStart={rowStart}
+                  tagArray={tags.data}
+                  title={title}
+                />
+              );
+            })}
+          </ProjectGrid>
+        ))}
     </section>
   );
 };
