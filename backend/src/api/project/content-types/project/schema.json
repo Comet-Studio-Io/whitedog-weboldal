@@ -53,6 +53,12 @@
       "relation": "manyToMany",
       "target": "api::project-categorie.project-categorie",
       "inversedBy": "projects"
+    },
+    "project_filter": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project-filter.project-filter",
+      "inversedBy": "projects"
     }
   }
 }
