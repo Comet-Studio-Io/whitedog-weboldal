@@ -1,15 +1,4 @@
 module.exports = ({ env }) => ({
-  slugify: {
-    enabled: true,
-    config: {
-      contentTypes: {
-        "project-detail": {
-          field: 'URL',
-          references: 'title',
-        },
-      },
-    },
-  },
   upload: {
     config: {
       provider: "cloudinary",
