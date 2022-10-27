@@ -50,6 +50,7 @@ const NewsSectionComponent: FC = () => {
                 }
                 src={newsItem.attributes.featured_image.data.attributes.url}
                 text={newsItem.attributes.Title}
+                url={newsItem.attributes.Url}
               />
             );
           })}

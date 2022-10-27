@@ -1,17 +1,17 @@
 import Image from "next/image";
-import { memo, FC, MouseEventHandler } from "react";
+import { memo, FC } from "react";
 
 import { useZustandStore } from "../../../store/useStore";
 
 interface SlideshowItemTypes {
-  onClick?: MouseEventHandler<HTMLButtonElement>;
+  url: string;
   text: string;
   date: string;
   src: string;
   filterType?: string;
 }
 const SlideshowItemComponent: FC<SlideshowItemTypes> = ({
-  onClick,
+  url,
   text,
   date,
   src,
@@ -20,7 +20,11 @@ const SlideshowItemComponent: FC<SlideshowItemTypes> = ({
   const { newsFilter } = useZustandStore();
 
   return newsFilter === filterType || newsFilter === "Összes" ? (
-    <div className="inline-flex flex-col w-max h-auto">
+    <a
+      aria-label="open link"
+      className="inline-flex flex-col w-max h-auto"
+      href={url}
+    >
       <div
         className={
           "cursor-pointer flex flex-col justify-center items-center h-auto w-auto relative max-w-[336px] max-h-[250px]"
@@ -40,7 +44,7 @@ const SlideshowItemComponent: FC<SlideshowItemTypes> = ({
         </span>
         <span className="text-text-gray-light flex">{date}</span>
       </div>
-    </div>
+    </a>
   ) : null;
 };
 
