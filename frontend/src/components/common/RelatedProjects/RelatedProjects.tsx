@@ -5,7 +5,6 @@ import { Title } from "../Title/Title";
 
 interface RelatedProjectsTypes {
   title: string;
-  projectAmount?: number;
   gridRows: number;
   gridColumns: number;
   children: ReactElement[];
@@ -13,7 +12,6 @@ interface RelatedProjectsTypes {
 
 export const RelatedProjects: FC<RelatedProjectsTypes> = ({
   title,
-  projectAmount,
   gridColumns,
   gridRows,
   children,
@@ -21,7 +19,7 @@ export const RelatedProjects: FC<RelatedProjectsTypes> = ({
   return (
     <div className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 pb-6 bg-secondary">
       <Title className={"text-white"} text={title} />
-      <ProjectGrid columns={gridColumns - 1} rows={gridRows - 1}>
+      <ProjectGrid columns={gridColumns} rows={gridRows}>
         {children}
       </ProjectGrid>
     </div>
