@@ -52,7 +52,7 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
       currentProjectData !== undefined &&
       status === "success" ? (
         <>
-          <div className={"flex flex-col w-full md:px-8 px-2 pb-8"}>
+          <div className={"flex flex-col w-full md:px-8 px-2 pb-20"}>
             <div className="pt-14">
               <ProjectTags
                 darkMode
