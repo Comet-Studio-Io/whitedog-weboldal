@@ -3,6 +3,7 @@ import { memo, FC, useEffect, useState } from "react";
 
 import { useGetProject } from "../../../hooks/useGetProject";
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
+import { useZustandStore } from "../../../store/useStore";
 import { StrapiProjectGridItem } from "../../../types/strapiProjectGridItem";
 import { ListItem } from "../../common/List/ListItem";
 import { ProjectGrid } from "../../common/ProjectGrid/ProjectGrid";
@@ -28,6 +29,7 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
           .replace(/[\u0300-\u036f]/g, ""),
       });
     }
+    useZustandStore.setState({ selectedTag: [], projectFilter: "Összes" });
   }, [router]);
 
   const deviceState = useGetUserAgent();
