@@ -10,7 +10,8 @@ import { Title } from "../../common/Title/Title";
 
 const ProjectsPageComponent: FC = (): JSX.Element => {
   const navbarOptions: ProjectFilterTypes[] = useMemo(() => {
-    return ["Összes", "Arculat", "Filmgyártás", "Webfejlesztés"];
+    return [""];
+    // return ["Összes", "Arculat", "Filmgyártás", "Webfejlesztés"];
   }, []);
 
   const deviceState = useGetUserAgent();
