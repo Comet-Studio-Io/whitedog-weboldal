@@ -17,10 +17,11 @@ const HeroSectionComponent: FC = (): JSX.Element => {
       <Image
         alt="hero-image"
         height={720}
+        objectFit="cover"
         layout={deviceState === "desktop" ? "responsive" : "fill"}
         src={
           deviceState === "desktop"
-            ? "/images/hero.png"
+            ? "/images/hero.jpg"
             : "/images/hero_mobile.png"
         }
         width={1440}
