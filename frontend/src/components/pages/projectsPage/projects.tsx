@@ -10,7 +10,8 @@ import { Title } from "../../common/Title/Title";
 
 const ProjectsPageComponent: FC = (): JSX.Element => {
   const navbarOptions: ProjectFilterTypes[] = useMemo(() => {
-    return ["Összes", "Arculat", "Filmgyártás", "Webfejlesztés"];
+    //return ["Összes", "Arculat", "Filmgyártás", "Webfejlesztés"];
+    return [];
   }, []);
 
   const deviceState = useGetUserAgent();
@@ -19,9 +20,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
 
   return (
     <section
-      className={
-        "w-full h-auto flex flex-col min-h-screen md:px-8 px-2 pb-6 md:pb-12"
-      }
+      className={"w-full h-auto flex flex-col md:px-8 px-2 pb-6 md:pb-12"}
     >
       <Title className="text-primary-gray" text="Projektek" />
       <Navbar data={navbarOptions} setZustandItem={"projectFilter"} />
