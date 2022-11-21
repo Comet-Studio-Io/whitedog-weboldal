@@ -1,9 +1,7 @@
-import { useRouter } from "next/router";
 import { memo, FC, useCallback } from "react";
 
 import { useGetProjects } from "../../../hooks/useGetProjects";
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
-import { webPaths } from "../../../webpaths";
 import { Description } from "../../common/Description/Description";
 import { ProjectGrid } from "../../common/ProjectGrid/ProjectGrid";
 import { ProjectGridItem } from "../../common/ProjectGrid/ProjectGridItem";
