@@ -4,7 +4,7 @@ import { memo, FC, useCallback } from "react";
 import { useGetProjects } from "../../../hooks/useGetProjects";
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
 import { webPaths } from "../../../webpaths";
-import { Button } from "../../common/Button/Button";
+
 import { Description } from "../../common/Description/Description";
 import { ProjectGrid } from "../../common/ProjectGrid/ProjectGrid";
 import { ProjectGridItem } from "../../common/ProjectGrid/ProjectGridItem";
