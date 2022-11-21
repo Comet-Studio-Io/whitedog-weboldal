@@ -15,7 +15,8 @@ const NewsSectionComponent: FC = () => {
   const { data } = useGetNews();
 
   const navbarOptions: NewsFilterTypes[] = useMemo(() => {
-    return ["Összes", "Díjak", "Publikációk", "Sajtómegjelenések"];
+    // return ["Összes", "Díjak", "Publikációk", "Sajtómegjelenések"];
+    return [];
   }, []);
 
   const containerRef = useRef<HTMLDivElement>(
