@@ -71,7 +71,7 @@ const ProjectsSectionComponent: FC = () => {
           </ProjectGrid>
         ))}
 
-      <Button text="összes projekt" onClick={handleProjectButtonClick} />
+      {/* <Button text="összes projekt" onClick={handleProjectButtonClick} /> */}
     </section>
   );
 };
