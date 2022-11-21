@@ -1,4 +1,4 @@
-import { memo, FC, useCallback } from "react";
+import { memo, FC } from "react";
 
 import { useGetProjects } from "../../../hooks/useGetProjects";
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
