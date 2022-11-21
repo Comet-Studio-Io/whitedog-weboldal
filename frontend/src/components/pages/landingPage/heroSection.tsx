@@ -9,7 +9,11 @@ const HeroSectionComponent: FC = (): JSX.Element => {
   const deviceState = useGetUserAgent();
 
   return (
-    <section className={clsx("w-full h-auto flex flex-col -top-12 relative")}>
+    <section
+      className={clsx(
+        "w-full h-auto flex flex-col min-h-screen -top-12 relative",
+      )}
+    >
       <Image
         alt="hero-image"
         height={720}

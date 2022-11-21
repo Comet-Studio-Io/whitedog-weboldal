@@ -26,7 +26,7 @@ const ProjectGridComponent: FC<ProjectGridTypes> = ({
       className={clsx("w-full h-auto pb-8", className)}
       gap={12}
       templateColumns={`repeat(${columns}, 1fr)`}
-      templateRows={`repeat(${rows}, ${rowHeight})`}
+      templateRows={`repeat(20, ${rowHeight})`}
     >
       {projectFilter !== "Összes" && selectedTag === undefined
         ? children.filter((e: ReactElement) =>
