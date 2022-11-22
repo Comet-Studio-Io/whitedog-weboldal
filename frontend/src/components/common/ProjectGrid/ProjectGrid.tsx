@@ -1,4 +1,4 @@
-import { Grid } from "@chakra-ui/react";
+import { Wrap } from "@chakra-ui/react";
 import clsx from "clsx";
 import { FC, memo, ReactElement } from "react";
 
@@ -22,7 +22,7 @@ const ProjectGridComponent: FC<ProjectGridTypes> = ({
   const { selectedTag, projectFilter } = useZustandStore();
 
   return (
-    <Grid
+    <Wrap
       className={clsx("w-full h-auto pb-8", className)}
       gap={12}
       templateColumns={`repeat(${columns}, 1fr)`}
@@ -56,7 +56,7 @@ const ProjectGridComponent: FC<ProjectGridTypes> = ({
             }),
           )
         : children}
-    </Grid>
+    </Wrap>
   );
 };
 
