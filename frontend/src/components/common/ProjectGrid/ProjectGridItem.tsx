@@ -43,7 +43,7 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
   }, []);
 
   return (
-    <WrapItem width="45%" height="">
+    <WrapItem width="45%" height="20rem">
       <div
         className="w-full h-full relative"
         role={"button"}
