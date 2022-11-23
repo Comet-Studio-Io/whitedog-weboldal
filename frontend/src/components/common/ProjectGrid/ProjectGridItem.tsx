@@ -43,13 +43,7 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
   }, []);
 
   return (
-    <WrapItem
-      colEnd={colEnd}
-      colSpan={colSpan}
-      colStart={colStart}
-      rowEnd={rowEnd}
-      rowStart={rowStart}
-    >
+    <WrapItem width="45%" height="">
       <div
         className="w-full h-full relative"
         role={"button"}

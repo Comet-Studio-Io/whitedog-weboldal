@@ -10,6 +10,7 @@ import { Title } from "../../common/Title/Title";
 
 const ProjectsPageComponent: FC = (): JSX.Element => {
   const navbarOptions: ProjectFilterTypes[] = useMemo(() => {
+    return ["szia szerelmem, hianyozni fogsz"];
     return [];
   }, []);
 

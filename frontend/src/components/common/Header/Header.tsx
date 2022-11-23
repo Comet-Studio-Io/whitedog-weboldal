@@ -21,7 +21,7 @@ const HeaderComponent: FC = (): JSX.Element => {
         />
       </a>
       <div className="space-x-6">
-        {/* <HeaderLink href={webPaths.projects} text={"Projektek"} /> */}
+        <HeaderLink href={webPaths.projects} text={"Projektek"} />
         {userAgent === "desktop" && (
           <HeaderLink href={webPaths.contact} text={"Kapcsolat"} />
         )}
