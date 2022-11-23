@@ -1,4 +1,4 @@
-import { GridItem } from "@chakra-ui/react";
+import { WrapItem } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC, memo, useCallback } from "react";
@@ -43,7 +43,7 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
   }, []);
 
   return (
-    <GridItem
+    <WrapItem
       colEnd={colEnd}
       colSpan={colSpan}
       colStart={colStart}
@@ -70,7 +70,7 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
           </div>
         )}
       </div>
-    </GridItem>
+    </WrapItem>
   );
 };
 

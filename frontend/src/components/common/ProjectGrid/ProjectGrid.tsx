@@ -22,12 +22,7 @@ const ProjectGridComponent: FC<ProjectGridTypes> = ({
   const { selectedTag, projectFilter } = useZustandStore();
 
   return (
-    <Wrap
-      className={clsx("w-full h-auto pb-8", className)}
-      gap={12}
-      templateColumns={`repeat(${columns}, 1fr)`}
-      templateRows={`repeat(20, ${rowHeight})`}
-    >
+    <Wrap className={clsx("w-full h-auto pb-8", className)} gap={12}>
       {projectFilter !== "Összes" && selectedTag === undefined
         ? children.filter((e: ReactElement) =>
             projectFilter.includes(e.props?.filterType),
