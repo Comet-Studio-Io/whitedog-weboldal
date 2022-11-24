@@ -24,8 +24,9 @@ const ProjectGridComponent: FC<ProjectGridTypes> = ({
   return (
     <Wrap className={clsx("w-full h-auto pb-8", className)} gap={12}>
       {projectFilter !== "Összes" && selectedTag === undefined
-        ? children.filter((e: ReactElement) =>
-            projectFilter.includes(e.props?.filterType),
+        ? children.filter(
+            (e: ReactElement) => projectFilter.includes(e.props?.filterType),
+            console.log("cica"),
           )
         : projectFilter === "Összes" && selectedTag !== undefined
         ? children.filter((e: ReactElement) =>
