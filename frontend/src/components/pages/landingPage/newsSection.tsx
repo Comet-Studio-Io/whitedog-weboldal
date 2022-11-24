@@ -34,12 +34,12 @@ const NewsSectionComponent: FC = () => {
         ref={containerRef}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...events}
-        className={clsx("max-w-[99vw] flex flex-row md:px-7 px-2", {
+        className={clsx("max-w flex flex-row md:px-7 px-2", {
           "overflow-x-hidden": userAgent === "desktop",
           "overflow-x-auto": userAgent === "mobile",
         })}
       >
-        <div className="space-x-3 flex">
+        <div className="space-x-3">
           {data?.map(newsItem => {
             return (
               <SlideshowItem
