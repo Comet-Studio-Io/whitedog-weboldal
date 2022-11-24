@@ -1,4 +1,4 @@
-import { GridItem } from "@chakra-ui/react";
+import { WrapItem } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC, memo, useCallback } from "react";
@@ -10,7 +10,7 @@ import { webPaths } from "../../../webpaths";
 import { ProjectGridTitle } from "./ProjectGridTitle";
 import { ProjectTags } from "./ProjectTags";
 
-interface ProjectGridItemTypes {
+interface ProjectWrapItemTypes {
   colSpan?: number;
   colStart?: number;
   colEnd?: number;
@@ -22,7 +22,7 @@ interface ProjectGridItemTypes {
   filterType?: ProjectFilterTypes;
 }
 
-const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
+const ProjectWrapItemComponent: FC<ProjectWrapItemTypes> = ({
   colEnd,
   colStart,
   rowEnd,
@@ -43,13 +43,7 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
   }, []);
 
   return (
-    <GridItem
-      colEnd={colEnd}
-      colSpan={colSpan}
-      colStart={colStart}
-      rowEnd={rowEnd}
-      rowStart={rowStart}
-    >
+    <WrapItem width="45%" height="20rem">
       <div
         className="w-full h-full relative"
         role={"button"}
@@ -70,8 +64,8 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
           </div>
         )}
       </div>
-    </GridItem>
+    </WrapItem>
   );
 };
 
-export const ProjectGridItem = memo(ProjectGridItemComponent);
+export const ProjectWrapItem = memo(ProjectWrapItemComponent);

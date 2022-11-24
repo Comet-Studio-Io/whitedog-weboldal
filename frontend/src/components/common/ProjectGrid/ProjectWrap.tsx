@@ -1,10 +1,10 @@
-import { Grid } from "@chakra-ui/react";
+import { Wrap } from "@chakra-ui/react";
 import clsx from "clsx";
 import { FC, memo, ReactElement } from "react";
 
 import { useZustandStore } from "../../../store/useStore";
 
-interface ProjectGridTypes {
+interface ProjectWrapTypes {
   columns: number;
   rows: number;
   rowHeight?: string;
@@ -12,7 +12,7 @@ interface ProjectGridTypes {
   className?: string;
 }
 
-const ProjectGridComponent: FC<ProjectGridTypes> = ({
+const ProjectWrapComponent: FC<ProjectWrapTypes> = ({
   children,
   columns,
   rows,
@@ -22,12 +22,7 @@ const ProjectGridComponent: FC<ProjectGridTypes> = ({
   const { selectedTag, projectFilter } = useZustandStore();
 
   return (
-    <Grid
-      className={clsx("w-full h-auto pb-8", className)}
-      gap={12}
-      templateColumns={`repeat(${columns}, 1fr)`}
-      templateRows={`repeat(${rows}, ${rowHeight})`}
-    >
+    <Wrap className={clsx("w-full h-auto pb-8", className)} gap={12}>
       {projectFilter !== "Összes" && selectedTag === undefined
         ? children.filter((e: ReactElement) =>
             projectFilter.includes(e.props?.filterType),
@@ -56,8 +51,8 @@ const ProjectGridComponent: FC<ProjectGridTypes> = ({
             }),
           )
         : children}
-    </Grid>
+    </Wrap>
   );
 };
 
-export const ProjectGrid = memo(ProjectGridComponent);
+export const ProjectWrap = memo(ProjectWrapComponent);

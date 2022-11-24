@@ -4,8 +4,8 @@ import { useGetProjects } from "../../../hooks/useGetProjects";
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
 import { ProjectFilterTypes } from "../../../types/projectFilterTypes";
 import { Navbar } from "../../common/Navbar/Navbar";
-import { ProjectGrid } from "../../common/ProjectGrid/ProjectGrid";
-import { ProjectGridItem } from "../../common/ProjectGrid/ProjectGridItem";
+import { ProjectWrap } from "../../common/ProjectGrid/ProjectWrap";
+import { ProjectWrapItem } from "../../common/ProjectGrid/ProjectWrapItem";
 import { Title } from "../../common/Title/Title";
 
 const ProjectsPageComponent: FC = (): JSX.Element => {
@@ -26,9 +26,9 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
       {data !== undefined &&
         status === "success" &&
         (deviceState === "mobile" ? (
-          <ProjectGrid columns={5} rows={data?.length * 3}>
+          <ProjectWrap columns={5} rows={data?.length * 3}>
             {data.map((project, i) => (
-              <ProjectGridItem
+              <ProjectWrapItem
                 key={project.id}
                 colSpan={5}
                 filterType={
@@ -41,9 +41,9 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
                 title={project.attributes.title}
               />
             ))}
-          </ProjectGrid>
+          </ProjectWrap>
         ) : (
-          <ProjectGrid columns={7} rows={data.at(-1)?.attributes.rowEnd ?? 1}>
+          <ProjectWrap columns={7} rows={data.at(-1)?.attributes.rowEnd ?? 1}>
             {data.map(project => {
               const {
                 colEnd,
@@ -57,7 +57,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
               } = project.attributes;
 
               return (
-                <ProjectGridItem
+                <ProjectWrapItem
                   key={project.id}
                   colEnd={colEnd}
                   colStart={colStart}
@@ -70,7 +70,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
                 />
               );
             })}
-          </ProjectGrid>
+          </ProjectWrap>
         ))}
     </section>
   );

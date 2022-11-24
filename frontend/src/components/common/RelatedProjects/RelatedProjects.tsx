@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 
-import { ProjectGrid } from "../ProjectGrid/ProjectGrid";
+import { ProjectGrid } from "../ProjectGrid/ProjectWrap";
 import { Title } from "../Title/Title";
 
 interface RelatedProjectsTypes {
