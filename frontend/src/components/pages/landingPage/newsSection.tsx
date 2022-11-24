@@ -39,7 +39,7 @@ const NewsSectionComponent: FC = () => {
           "overflow-x-auto": userAgent === "mobile",
         })}
       >
-        <div className="space-x-3 inline-flex">
+        <div className="space-x-3 flex w-full">
           {data?.map(newsItem => {
             return (
               <SlideshowItem
