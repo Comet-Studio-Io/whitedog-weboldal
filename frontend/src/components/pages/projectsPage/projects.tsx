@@ -60,7 +60,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
 
               return (
                 <ProjectWrapItem
-                  width="45%"
+                  width="49%"
                   key={project.id}
                   colEnd={colEnd}
                   colStart={colStart}
