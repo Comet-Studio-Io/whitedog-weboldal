@@ -18,6 +18,7 @@ interface ProjectWrapItemTypes {
   rowEnd: number;
   title?: string;
   imgSrc: string;
+  width: string;
   tagArray?: StrapiCategory["data"];
   filterType?: ProjectFilterTypes;
 }
@@ -32,6 +33,7 @@ const ProjectWrapItemComponent: FC<ProjectWrapItemTypes> = ({
   colSpan,
   tagArray,
   filterType,
+  width,
 }) => {
   const router = useRouter();
   const handleProjectClick = useCallback(() => {
@@ -43,7 +45,7 @@ const ProjectWrapItemComponent: FC<ProjectWrapItemTypes> = ({
   }, []);
 
   return (
-    <WrapItem width="45%" height="20rem">
+    <WrapItem width={width} height="20rem">
       <div
         className="w-full h-full relative"
         role={"button"}

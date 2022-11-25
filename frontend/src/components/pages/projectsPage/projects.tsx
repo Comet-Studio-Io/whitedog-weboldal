@@ -29,6 +29,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
           <ProjectWrap columns={5} rows={data?.length * 3}>
             {data.map((project, i) => (
               <ProjectWrapItem
+                width="100%"
                 key={project.id}
                 colSpan={5}
                 filterType={
@@ -51,6 +52,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
                 rowEnd,
                 rowStart,
                 title,
+
                 project_filter: filter,
                 featured_image: image,
                 project_categories: tags,
@@ -58,6 +60,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
 
               return (
                 <ProjectWrapItem
+                  width="45%"
                   key={project.id}
                   colEnd={colEnd}
                   colStart={colStart}
