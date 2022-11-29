@@ -15,8 +15,7 @@ const NewsSectionComponent: FC = () => {
   const { data } = useGetNews();
 
   const navbarOptions: NewsFilterTypes[] = useMemo(() => {
-    // return ["Összes", "Díjak", "Publikációk", "Sajtómegjelenések"];
-    return [];
+    return ["Összes", "Díjak", "Publikációk", "Sajtómegjelenések"];
   }, []);
 
   const containerRef = useRef<HTMLDivElement>(
@@ -35,12 +34,12 @@ const NewsSectionComponent: FC = () => {
         ref={containerRef}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...events}
-        className={clsx("max-w-[99vw] flex flex-row md:px-7 px-2", {
+        className={clsx("w-full flex flex-row md:px-7 px-2", {
           "overflow-x-hidden": userAgent === "desktop",
           "overflow-x-auto": userAgent === "mobile",
         })}
       >
-        <div className="space-x-3 inline-flex">
+        <div className="space-x-3 flex">
           {data?.map(newsItem => {
             return (
               <SlideshowItem

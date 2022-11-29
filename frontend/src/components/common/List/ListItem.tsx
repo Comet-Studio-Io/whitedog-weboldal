@@ -25,12 +25,6 @@ const ListItemComponent: FC<ListItemTypes> = ({ title, data, dark = true }) => {
         textContainerRef.current?.clientHeight !== undefined
       ) {
         if (userAgent === "desktop") {
-          if (distanceToTop < window.innerHeight / 2 - 60) {
-            setIsActive(true);
-          } else if (distanceToTop > window.innerHeight / 2) {
-            setIsActive(false);
-          }
-        } else {
           if (
             distanceToTop > window.innerHeight / 2 - 80 &&
             distanceToTop < window.innerHeight / 2 + 80
@@ -48,7 +42,7 @@ const ListItemComponent: FC<ListItemTypes> = ({ title, data, dark = true }) => {
     <span
       ref={textContainerRef}
       className={clsx(
-        "md:text-[1.75rem] text-[1.375rem] w-full text-left transition-all duration-500",
+        "md:text-[1.75rem] text-[1.375rem] w-full text-left transition-all duration-1500",
         {
           "text-black": isActive && dark,
           "text-white": isActive && !dark,
