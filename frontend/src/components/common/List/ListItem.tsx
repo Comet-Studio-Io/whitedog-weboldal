@@ -19,7 +19,6 @@ const ListItemComponent: FC<ListItemTypes> = ({ title, data, dark = true }) => {
     window.addEventListener("scroll", function () {
       const distanceToTop =
         textContainerRef.current?.getBoundingClientRect().top;
-      console.log(distanceToTop);
       if (
         distanceToTop !== undefined &&
         textContainerRef.current?.clientHeight !== undefined
