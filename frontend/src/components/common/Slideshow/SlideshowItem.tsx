@@ -27,11 +27,11 @@ const SlideshowItemComponent: FC<SlideshowItemTypes> = ({
     >
       <div
         className={
-          "rounded-xl cursor-pointer flex flex-col justify-center items-center h-auto w-full relative max-w-[336px] max-h-[250px]"
+          "cursor-pointer flex flex-col justify-center items-center h-auto w-full relative max-w-[336px] max-h-[250px]"
         }
       >
         <Image
-          className="object-fill"
+          className="object-fill rounded-xl"
           height={250}
           layout="intrinsic"
           src={src}
