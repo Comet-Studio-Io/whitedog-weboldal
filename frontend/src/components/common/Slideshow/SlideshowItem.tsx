@@ -27,7 +27,7 @@ const SlideshowItemComponent: FC<SlideshowItemTypes> = ({
     >
       <div
         className={
-          "cursor-pointer flex flex-col justify-center items-center h-auto w-full relative max-w-[336px] max-h-[250px]"
+          "rounded-xl cursor-pointer flex flex-col justify-center items-center h-auto w-full relative max-w-[336px] max-h-[250px]"
         }
       >
         <Image
