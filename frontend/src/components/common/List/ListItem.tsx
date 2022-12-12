@@ -20,19 +20,19 @@ const ListItemComponent: FC<ListItemTypes> = ({ title, data, dark = true }) => {
       const distanceToTop =
         textContainerRef.current?.getBoundingClientRect().top;
 
+      console.log("dt", distanceToTop, "wih:", window.innerHeight);
+
       if (
         distanceToTop !== undefined &&
         textContainerRef.current?.clientHeight !== undefined
       ) {
-        if (userAgent === "desktop") {
-          if (
-            distanceToTop > window.innerHeight / 2 - 80 &&
-            distanceToTop < window.innerHeight / 2 + 80
-          ) {
-            setIsActive(true);
-          } else {
-            setIsActive(false);
-          }
+        if (
+          distanceToTop > window.innerHeight / 2 - 80 &&
+          distanceToTop < window.innerHeight / 2 + 80
+        ) {
+          setIsActive(true);
+        } else {
+          setIsActive(false);
         }
       }
     });
