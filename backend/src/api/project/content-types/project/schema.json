@@ -59,6 +59,12 @@
       "relation": "manyToOne",
       "target": "api::project-filter.project-filter",
       "inversedBy": "projects"
+    },
+    "project_detail": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project-detail.project-detail",
+      "inversedBy": "project"
     }
   }
 }
