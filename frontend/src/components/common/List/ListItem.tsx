@@ -2,8 +2,6 @@ import { Collapse } from "@chakra-ui/react";
 import clsx from "clsx";
 import { FC, memo, useEffect, useRef, useState } from "react";
 
-import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
-
 interface ListItemTypes {
   title: string;
   data: string;
@@ -13,14 +11,11 @@ interface ListItemTypes {
 const ListItemComponent: FC<ListItemTypes> = ({ title, data, dark = true }) => {
   const textContainerRef = useRef<HTMLSpanElement>(null);
   const [isActive, setIsActive] = useState(false);
-  const userAgent = useGetUserAgent();
 
   useEffect(() => {
     window.addEventListener("scroll", function () {
       const distanceToTop =
         textContainerRef.current?.getBoundingClientRect().top;
-
-      console.log("dt", distanceToTop, "wih:", window.innerHeight);
 
       if (
         distanceToTop !== undefined &&
