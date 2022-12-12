@@ -1,7 +1,7 @@
 import { StrapiFilter } from "./strapiFilter";
 import { StrapiImage } from "./strapiImage";
-import { StrapiCategory } from "./strapiRelatedItem";
 import { StrapiProjectDetail } from "./StrapiProjectDetail";
+import { StrapiCategory } from "./strapiRelatedItem";
 
 export interface StrapiProjectGridItem {
   title: string;

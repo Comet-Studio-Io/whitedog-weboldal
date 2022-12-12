@@ -18,7 +18,7 @@ const ProjectsSectionComponent: FC = () => {
   const { data, status } = useGetProjects();
 
   return (
-    <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 lg:-top-20 md:-top-20 relative ">
+    <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 relative ">
       <Description
         className="text-white lg:w-2/3"
         text={
@@ -33,6 +33,7 @@ const ProjectsSectionComponent: FC = () => {
           <ProjectGrid columns={5} rows={data.length * 3}>
             {data.map((data, i) => {
               const project = data.attributes;
+
               return (
                 <ProjectGridItem
                   key={data.id}
@@ -50,7 +51,6 @@ const ProjectsSectionComponent: FC = () => {
           <ProjectGrid columns={7} rows={data.at(-1)?.attributes.rowEnd ?? 1}>
             {data.map(data => {
               const project = data.attributes;
-              console.log(project);
 
               return (
                 <ProjectGridItem

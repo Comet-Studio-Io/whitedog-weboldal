@@ -9,12 +9,12 @@ import { ListItem } from "../../common/List/ListItem";
 import { ProjectGrid } from "../../common/ProjectGrid/ProjectGrid";
 import { ProjectGridItem } from "../../common/ProjectGrid/ProjectGridItem";
 import { ProjectTags } from "../../common/ProjectGrid/ProjectTags";
-import { RelatedProjects } from "../../common/RelatedProjects/RelatedProjects";
 import { PageTitle } from "../../common/Title/PageTitle";
 import { SubTitle } from "../../common/Title/SubTitle";
 
 const SpecificProjectPageComponent: FC = (): JSX.Element => {
   const router = useRouter();
+
   const { data, status, fetch } = useGetProject(
     String(router.query.project)
       .normalize("NFD")

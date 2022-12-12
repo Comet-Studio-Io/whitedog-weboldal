@@ -10,6 +10,7 @@ export const useGetProjects = (): {
 } => {
   const { data, status } = useQuery("projects", async () => {
     const response = await getProjects();
+
     return response.data;
   });
 
