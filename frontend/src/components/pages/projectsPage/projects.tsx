@@ -64,7 +64,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
                   key={project.id}
                   colEnd={colEnd}
                   colStart={colStart}
-                  filterType={filter.data.attributes.filter_name}
+                  filterType={filter.data?.attributes.filter_name}
                   imgSrc={image.data.attributes.url}
                   rowEnd={rowEnd}
                   rowStart={rowStart}
