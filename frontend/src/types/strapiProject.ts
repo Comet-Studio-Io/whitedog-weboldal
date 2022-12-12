@@ -6,11 +6,11 @@ export interface StrapiProject {
   URL: string;
   company: string;
   title: string;
-  projects: {
-    data: Array<{
+  project: {
+    data: {
       attributes: StrapiProjectGridItem;
       id: number;
-    }>;
+    };
   };
   project_image: Array<{
     colStart: number;
@@ -20,5 +20,6 @@ export interface StrapiProject {
     id: number;
     featured_image: StrapiImage;
   }>;
+
   services: StrapiListItem[];
 }

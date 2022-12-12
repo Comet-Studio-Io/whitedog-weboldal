@@ -37,15 +37,10 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
 
   const [currentProjectData, setCurrentProjectData] =
     useState<StrapiProjectGridItem>();
-  const [relatedProject1, setRelatedProject1] =
-    useState<StrapiProjectGridItem>();
-  const [relatedProject2, setRelatedProject2] =
-    useState<StrapiProjectGridItem>();
 
   useEffect(() => {
-    setCurrentProjectData(projectData?.projects.data[0].attributes);
-    setRelatedProject1(projectData?.projects?.data[1]?.attributes);
-    setRelatedProject2(projectData?.projects?.data[2]?.attributes);
+    setCurrentProjectData(projectData?.project.data.attributes);
+    console.log(projectData);
   }, [projectData]);
 
   return (
@@ -58,7 +53,7 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
             <div className="pt-14">
               <ProjectTags
                 darkMode
-                tagArray={currentProjectData.project_categories.data}
+                tagArray={currentProjectData.project_categories?.data}
               />
             </div>
             <PageTitle className="text-white pt-4" text={projectData.title} />
@@ -117,7 +112,7 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
               })}
             </div>
           </div>
-          {projectData.projects?.data.length === 3 &&
+          {/* {projectData.projects?.data.length === 3 &&
           relatedProject1 !== undefined &&
           relatedProject2 !== undefined ? (
             deviceState === "mobile" ? (
@@ -168,7 +163,7 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
                 />
               </RelatedProjects>
             )
-          ) : null}
+          ) : null} */}
         </>
       ) : null}
     </section>

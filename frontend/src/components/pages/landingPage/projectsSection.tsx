@@ -33,7 +33,6 @@ const ProjectsSectionComponent: FC = () => {
           <ProjectGrid columns={5} rows={data.length * 3}>
             {data.map((data, i) => {
               const project = data.attributes;
-              console.log(project);
               return (
                 <ProjectGridItem
                   key={data.id}

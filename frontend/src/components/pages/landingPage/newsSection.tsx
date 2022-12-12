@@ -46,7 +46,7 @@ const NewsSectionComponent: FC = () => {
                 key={newsItem.id}
                 date={newsItem.attributes.Date}
                 filterType={
-                  newsItem.attributes.news_categories.data[0].attributes.name
+                  newsItem.attributes.news_categories?.data[0].attributes.name
                 }
                 src={newsItem.attributes.featured_image.data.attributes.url}
                 text={newsItem.attributes.Title}
