@@ -20,6 +20,7 @@ const ProjectTagComponent: FC<ProjectTagTypes> = ({
       e.stopPropagation();
       useZustandStore.setState({ selectedTag: [text] });
       void router.push(webPaths.projects);
+      console.log(webPaths.projects);
     },
     [text],
   );

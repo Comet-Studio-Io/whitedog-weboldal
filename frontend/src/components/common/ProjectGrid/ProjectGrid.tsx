@@ -20,7 +20,6 @@ const ProjectGridComponent: FC<ProjectGridTypes> = ({
   className,
 }) => {
   const { selectedTag, projectFilter } = useZustandStore();
-
   return (
     <Grid
       className={clsx("w-full h-auto pb-8", className)}

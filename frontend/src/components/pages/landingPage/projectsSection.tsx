@@ -33,7 +33,7 @@ const ProjectsSectionComponent: FC = () => {
           <ProjectGrid columns={5} rows={data.length * 3}>
             {data.map((data, i) => {
               const project = data.attributes;
-
+              console.log(project);
               return (
                 <ProjectGridItem
                   key={data.id}
@@ -51,6 +51,7 @@ const ProjectsSectionComponent: FC = () => {
           <ProjectGrid columns={7} rows={data.at(-1)?.attributes.rowEnd ?? 1}>
             {data.map(data => {
               const project = data.attributes;
+              console.log(project);
 
               return (
                 <ProjectGridItem
@@ -62,6 +63,7 @@ const ProjectsSectionComponent: FC = () => {
                   rowStart={project.rowStart}
                   tagArray={project.project_categories.data}
                   title={project.title}
+                  URL={project?.project_detail?.data?.attributes?.URL}
                 />
               );
             })}

@@ -20,6 +20,7 @@ interface ProjectGridItemTypes {
   imgSrc: string;
   tagArray?: StrapiCategory["data"];
   filterType?: ProjectFilterTypes;
+  URL?: string;
 }
 
 const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
@@ -32,12 +33,13 @@ const ProjectGridItemComponent: FC<ProjectGridItemTypes> = ({
   colSpan,
   tagArray,
   filterType,
+  URL,
 }) => {
   const router = useRouter();
   const handleProjectClick = useCallback(() => {
-    if (title !== undefined) {
+    if (URL !== undefined) {
       void router.push({
-        pathname: `${webPaths.project}/${title}`,
+        pathname: `${webPaths.project}/${URL}`,
       });
     }
   }, []);

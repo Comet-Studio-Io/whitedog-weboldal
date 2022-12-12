@@ -16,7 +16,6 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
   const deviceState = useGetUserAgent();
 
   const { data, status } = useGetProjects();
-
   return (
     <section
       className={"w-full h-auto flex flex-col md:px-8 px-2 pb-6 md:pb-12"}
