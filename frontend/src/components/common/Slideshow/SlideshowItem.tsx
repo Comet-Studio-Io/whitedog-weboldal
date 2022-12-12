@@ -27,7 +27,7 @@ const SlideshowItemComponent: FC<SlideshowItemTypes> = ({
     >
       <div
         className={
-          "cursor-pointer hover:underline flex flex-col justify-center items-center h-auto w-full relative max-w-[336px] max-h-[250px]"
+          "cursor-pointer text-white hover:underline flex flex-col justify-center items-center h-auto w-full relative max-w-[336px] max-h-[250px]"
         }
       >
         <Image
@@ -39,12 +39,12 @@ const SlideshowItemComponent: FC<SlideshowItemTypes> = ({
           width={336}
         />
         <div className="flex-col h-auto w-auto max-w-[336px] pt-3 whitespace-normal">
-          <span className="text-white hover:underline transition-all duration-300 cursor-pointer">
+          <span className="text-white transition-all duration-300 cursor-pointer">
             {text}
           </span>
-          <span className="text-text-gray-light flex">{date}</span>
         </div>
       </div>
+      <span className="text-text-gray-light flex">{date}</span>
     </a>
   ) : null;
 };
