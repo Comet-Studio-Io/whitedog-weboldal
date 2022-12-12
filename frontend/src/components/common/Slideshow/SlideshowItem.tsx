@@ -31,7 +31,8 @@ const SlideshowItemComponent: FC<SlideshowItemTypes> = ({
         }
       >
         <Image
-          className="object-fill rounded-xl"
+          className="rounded-xl"
+          objectFit="cover"
           height={250}
           layout="intrinsic"
           src={src}
