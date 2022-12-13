@@ -27,22 +27,31 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
         status === "success" &&
         (deviceState === "mobile" ? (
           <ProjectWrap columns={5} rows={data?.length * 3}>
-            {data.map((project, i) => (
-              <ProjectWrapItem
-                width="100%"
-                key={project.id}
-                colSpan={5}
-                filterType={
-                  project.attributes.project_filter.data.attributes.filter_name
-                }
-                imgSrc={project.attributes.featured_image.data.attributes.url}
-                rowEnd={i + 4 + i * 2}
-                rowStart={i + 1 + i * 2}
-                tagArray={project.attributes.project_categories.data}
-                title={project.attributes.title}
-                URL={project?.project_detail?.data?.attributes?.URL}
-              />
-            ))}
+            {data.map((project, i) => {
+              const {
+                title,
+                project_detail,
+
+                project_filter: filter,
+                featured_image: image,
+                project_categories: tags,
+              } = project.attributes;
+
+              return (
+                <ProjectWrapItem
+                  width="100%"
+                  key={project.id}
+                  colSpan={5}
+                  filterType={filter.data?.attributes.filter_name}
+                  imgSrc={image.data.attributes.url}
+                  rowEnd={i + 4 + i * 2}
+                  rowStart={i + 1 + i * 2}
+                  tagArray={tags.data}
+                  title={title}
+                  URL={project_detail?.data?.attributes?.URL}
+                />
+              );
+            })}
           </ProjectWrap>
         ) : (
           <ProjectWrap columns={7} rows={data.at(-1)?.attributes.rowEnd ?? 1}>
