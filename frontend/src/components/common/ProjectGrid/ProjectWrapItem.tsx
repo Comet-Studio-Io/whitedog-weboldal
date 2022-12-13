@@ -21,6 +21,7 @@ interface ProjectWrapItemTypes {
   width: string;
   tagArray?: StrapiCategory["data"];
   filterType?: ProjectFilterTypes;
+  URL?: string;
 }
 
 const ProjectWrapItemComponent: FC<ProjectWrapItemTypes> = ({
@@ -34,12 +35,14 @@ const ProjectWrapItemComponent: FC<ProjectWrapItemTypes> = ({
   tagArray,
   filterType,
   width,
+  URL,
 }) => {
   const router = useRouter();
   const handleProjectClick = useCallback(() => {
-    if (title !== undefined) {
+    console.log("cica", URL);
+    if (URL !== undefined) {
       void router.push({
-        pathname: `${webPaths.project}/${title}`,
+        pathname: `${webPaths.project}/${URL}`,
       });
     }
   }, []);

@@ -40,7 +40,6 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
 
   useEffect(() => {
     setCurrentProjectData(projectData?.project.data.attributes);
-    console.log(projectData);
   }, [projectData]);
 
   return (

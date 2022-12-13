@@ -40,6 +40,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
                 rowStart={i + 1 + i * 2}
                 tagArray={project.attributes.project_categories.data}
                 title={project.attributes.title}
+                URL={project?.project_detail?.data?.attributes?.URL}
               />
             ))}
           </ProjectWrap>
@@ -52,6 +53,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
                 rowEnd,
                 rowStart,
                 title,
+                project_detail,
 
                 project_filter: filter,
                 featured_image: image,
@@ -70,6 +72,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
                   rowStart={rowStart}
                   tagArray={tags.data}
                   title={title}
+                  URL={project_detail?.data?.attributes?.URL}
                 />
               );
             })}
