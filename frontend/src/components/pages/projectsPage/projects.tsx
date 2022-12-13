@@ -30,7 +30,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
             {data.map((project, i) => {
               const {
                 title,
-                project_detail,
+                project_detail: detail,
 
                 project_filter: filter,
                 featured_image: image,
@@ -48,7 +48,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
                   rowStart={i + 1 + i * 2}
                   tagArray={tags.data}
                   title={title}
-                  URL={project_detail?.data?.attributes?.URL}
+                  URL={detail?.data?.attributes?.URL}
                 />
               );
             })}
@@ -62,7 +62,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
                 rowEnd,
                 rowStart,
                 title,
-                project_detail,
+                project_detail: detail,
 
                 project_filter: filter,
                 featured_image: image,
@@ -81,7 +81,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
                   rowStart={rowStart}
                   tagArray={tags.data}
                   title={title}
-                  URL={project_detail?.data?.attributes?.URL}
+                  URL={detail?.data?.attributes?.URL}
                 />
               );
             })}
