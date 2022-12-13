@@ -39,7 +39,6 @@ const ProjectWrapItemComponent: FC<ProjectWrapItemTypes> = ({
 }) => {
   const router = useRouter();
   const handleProjectClick = useCallback(() => {
-    console.log("cica", URL);
     if (URL !== undefined) {
       void router.push({
         pathname: `${webPaths.project}/${URL}`,
