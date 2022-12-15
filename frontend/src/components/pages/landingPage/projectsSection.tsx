@@ -1,13 +1,15 @@
-import { useCallback, memo, FC } from "react";
 import { useRouter } from "next/router";
+
+import { useCallback, memo, FC } from "react";
+
 import { useGetProjects } from "../../../hooks/useGetProjects";
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
+import { Button } from "../../common/Button/Button";
+import { webPaths } from "../../../webpaths";
+import { Title } from "../../common/Title/Title";
 import { Description } from "../../common/Description/Description";
 import { ProjectGrid } from "../../common/ProjectGrid/ProjectGrid";
 import { ProjectGridItem } from "../../common/ProjectGrid/ProjectGridItem";
-import { Title } from "../../common/Title/Title";
-import { Button } from "../../common/Button/Button";
-import { webPaths } from "../../../webpaths";
 
 const ProjectsSectionComponent: FC = () => {
   const router = useRouter();
@@ -20,7 +22,7 @@ const ProjectsSectionComponent: FC = () => {
   const { data, status } = useGetProjects();
 
   return (
-    <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 relative -top-20">
+    <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2">
       <Description
         className="text-white lg:w-2/3"
         text={
