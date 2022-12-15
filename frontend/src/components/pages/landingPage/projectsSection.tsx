@@ -1,24 +1,26 @@
-import { memo, FC } from "react";
-
+import { useCallback, memo, FC } from "react";
+import { useRouter } from "next/router";
 import { useGetProjects } from "../../../hooks/useGetProjects";
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
 import { Description } from "../../common/Description/Description";
 import { ProjectGrid } from "../../common/ProjectGrid/ProjectGrid";
 import { ProjectGridItem } from "../../common/ProjectGrid/ProjectGridItem";
 import { Title } from "../../common/Title/Title";
+import { Button } from "../../common/Button/Button";
+import { webPaths } from "../../../webpaths";
 
 const ProjectsSectionComponent: FC = () => {
-  // const router = useRouter();
+  const router = useRouter();
   const deviceState = useGetUserAgent();
 
-  // const handleProjectButtonClick = useCallback(() => {
-  //   void router.push(webPaths.projects);
-  // }, []);
+  const handleProjectButtonClick = useCallback(() => {
+    void router.push(webPaths.projects);
+  }, []);
 
   const { data, status } = useGetProjects();
 
   return (
-    <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 relative ">
+    <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 relative -top-20">
       <Description
         className="text-white lg:w-2/3"
         text={
@@ -68,8 +70,7 @@ const ProjectsSectionComponent: FC = () => {
             })}
           </ProjectGrid>
         ))}
-
-      {/* <Button text="összes projekt" onClick={handleProjectButtonClick} /> */}
+      <Button text="összes projekt" onClick={handleProjectButtonClick} />
     </section>
   );
 };

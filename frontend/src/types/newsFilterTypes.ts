@@ -1,5 +1,1 @@
-export type NewsFilterTypes =
-  | "Összes"
-  | "Díjak"
-  | "Publikációk"
-  | "Sajtómegjelenések";
+export type NewsFilterTypes = "Összes" | "Díjak" | "Sajtómegjelenések";
