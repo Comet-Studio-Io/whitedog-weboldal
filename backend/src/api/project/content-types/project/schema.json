@@ -64,7 +64,10 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::project-detail.project-detail",
-      "inversedBy": "project"
+      "mappedBy": "project"
+    },
+    "video_url": {
+      "type": "string"
     }
   }
 }
