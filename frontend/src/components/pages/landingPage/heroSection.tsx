@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import Image from "next/image";
 import { memo, FC } from "react";
 
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
