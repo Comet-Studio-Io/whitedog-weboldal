@@ -30,7 +30,7 @@ body {
   border-radius: 0px;
 }
 .header {
-  height: 550px;
+  min-height: 550px;
 }
 
 @keyframes slideAnimation {

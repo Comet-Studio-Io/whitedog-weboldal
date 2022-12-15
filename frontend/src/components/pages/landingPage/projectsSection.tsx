@@ -7,8 +7,8 @@ import { webPaths } from "../../../webpaths";
 import { Button } from "../../common/Button/Button";
 import { Description } from "../../common/Description/Description";
 import { ProjectGrid } from "../../common/ProjectGrid/ProjectGrid";
-import { Title } from "../../common/Title/Title";
 import { ProjectGridItem } from "../../common/ProjectGrid/ProjectGridItem";
+import { Title } from "../../common/Title/Title";
 
 const ProjectsSectionComponent: FC = () => {
   const router = useRouter();
@@ -21,7 +21,7 @@ const ProjectsSectionComponent: FC = () => {
   const { data, status } = useGetProjects();
 
   return (
-    <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 pb-8">
+    <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 relative -top-20">
       <Description
         className="text-white lg:w-2/3"
         text={
