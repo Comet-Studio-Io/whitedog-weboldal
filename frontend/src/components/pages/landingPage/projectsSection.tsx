@@ -1,14 +1,13 @@
 import { useRouter } from "next/router";
-
 import { useCallback, memo, FC } from "react";
 
 import { useGetProjects } from "../../../hooks/useGetProjects";
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
-import { Button } from "../../common/Button/Button";
 import { webPaths } from "../../../webpaths";
-import { Title } from "../../common/Title/Title";
+import { Button } from "../../common/Button/Button";
 import { Description } from "../../common/Description/Description";
 import { ProjectGrid } from "../../common/ProjectGrid/ProjectGrid";
+import { Title } from "../../common/Title/Title";
 import { ProjectGridItem } from "../../common/ProjectGrid/ProjectGridItem";
 
 const ProjectsSectionComponent: FC = () => {
