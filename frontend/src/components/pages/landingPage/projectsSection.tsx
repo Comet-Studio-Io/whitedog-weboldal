@@ -22,7 +22,7 @@ const ProjectsSectionComponent: FC = () => {
   const { data, status } = useGetProjects();
 
   return (
-    <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2">
+    <section className="flex flex-col justify-start items-center w-full h-auto md:px-8 px-2 pb-8">
       <Description
         className="text-white lg:w-2/3"
         text={
