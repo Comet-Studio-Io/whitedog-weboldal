@@ -8,7 +8,10 @@ import { FooterSocials } from "./FooterSocials";
 
 const FooterComponent = (): JSX.Element => {
   return (
-    <footer className="bg-primary-gray justify-start items-start flex flex-row w-full">
+    <footer
+      id="footer"
+      className="bg-primary-gray justify-start items-start flex flex-row w-full"
+    >
       <div className="pt-10 px-2 md:px-8 w-full">
         <FooterCarousel />
         <PageTitle className="text-text-gray-dark" text={"Kapcsolat"} />

@@ -10,7 +10,7 @@ const HeaderComponent: FC = (): JSX.Element => {
   const userAgent = useGetUserAgent();
 
   return (
-    <header className="h-12 justify-between w-full md:px-8 px-2 items-center flex flex-row z-20 relative">
+    <header className="h-12 justify-between w-full md:px-8 px-2 items-center flex flex-row z-20 absolute">
       <a href={webPaths.home}>
         <Image
           priority
@@ -23,7 +23,7 @@ const HeaderComponent: FC = (): JSX.Element => {
       <div className="space-x-6">
         <HeaderLink href={webPaths.projects} text={"Projektek"} />
         {userAgent === "desktop" && (
-          <HeaderLink href={webPaths.contact} text={"Kapcsolat"} />
+          <HeaderLink href="#footer" text={"Kapcsolat"} />
         )}
       </div>
     </header>
