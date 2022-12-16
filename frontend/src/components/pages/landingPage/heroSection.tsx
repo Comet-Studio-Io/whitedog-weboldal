@@ -26,7 +26,7 @@ const HeroSectionComponent: FC = (): JSX.Element => {
             "ml-7": deviceState === "desktop",
           })}
         >
-          <span className="text-white flex md:text-[24px] text-[18px] text-opacity-50 uppercase">
+          <span className="text-white flex md:text-[24px] text-[18px] text-opacity-50 uppercase pt-8">
             {"Creative agency"}
           </span>
           <PageTitle className="text-white" text={"Whitedog Media"} />
