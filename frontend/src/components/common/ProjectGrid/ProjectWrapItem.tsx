@@ -1,4 +1,3 @@
-import Vimeo from "@u-wave/react-vimeo";
 import { WrapItem } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
