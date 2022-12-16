@@ -23,7 +23,7 @@ const ListItemComponent: FC<ListItemTypes> = ({ title, data, dark = true }) => {
       ) {
         if (
           distanceToTop > window.innerHeight / 2 - 80 &&
-          distanceToTop < window.innerHeight / 2 + 80
+          distanceToTop < window.innerHeight / 2
         ) {
           setIsActive(true);
         } else {

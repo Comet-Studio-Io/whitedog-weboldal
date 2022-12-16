@@ -16,6 +16,8 @@ const HeroSectionComponent: FC = (): JSX.Element => {
           responsive
           controls={false}
           autoplay
+          loop
+          muted
         />
         <div
           className={clsx("leading-none relative", {
