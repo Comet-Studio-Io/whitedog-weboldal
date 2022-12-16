@@ -23,12 +23,10 @@ const ListItemComponent: FC<ListItemTypes> = ({
       const distanceToTop =
         textContainerRef.current?.getBoundingClientRect().top;
 
-      if (
-        distanceToTop !== undefined &&
-        textContainerRef.current?.clientHeight !== undefined &&
-        context === "service"
-      ) {
+      if (context === "service") {
         if (
+          distanceToTop !== undefined &&
+          textContainerRef.current?.clientHeight !== undefined &&
           distanceToTop > window.innerHeight / 2 - 80 &&
           distanceToTop < window.innerHeight / 2
         ) {
@@ -38,6 +36,8 @@ const ListItemComponent: FC<ListItemTypes> = ({
         }
       } else {
         if (
+          distanceToTop !== undefined &&
+          textContainerRef.current?.clientHeight !== undefined &&
           distanceToTop > window.innerHeight / 2 - window.innerHeight &&
           distanceToTop < window.innerHeight / 2 + 80
         ) {
