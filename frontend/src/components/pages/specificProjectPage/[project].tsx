@@ -1,6 +1,6 @@
+import Vimeo from "@u-wave/react-vimeo";
 import { useRouter } from "next/router";
 import { memo, FC, useEffect, useState } from "react";
-import Vimeo from "@u-wave/react-vimeo";
 
 import { useGetProject } from "../../../hooks/useGetProject";
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";

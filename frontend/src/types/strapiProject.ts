@@ -1,6 +1,5 @@
 import { StrapiImage } from "./strapiImage";
 import { StrapiListItem } from "./strapiListItem";
-import { StrapiProjectDetail } from "./StrapiProjectDetail";
 import { StrapiProjectGridItem } from "./strapiProjectGridItem";
 
 export interface StrapiProject {
