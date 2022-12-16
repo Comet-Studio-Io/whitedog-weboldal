@@ -1,6 +1,6 @@
+import Vimeo from "@u-wave/react-vimeo";
 import clsx from "clsx";
 import { memo, FC } from "react";
-import Vimeo from "@u-wave/react-vimeo";
 
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
 import { PageTitle } from "../../common/Title/PageTitle";
@@ -13,9 +13,9 @@ const HeroSectionComponent: FC = (): JSX.Element => {
       <div className={clsx("w-full flex flex-col")}>
         <Vimeo
           video="https://vimeo.com/721417008"
-          responsive={true}
+          responsive
           controls={false}
-          autoplay={true}
+          autoplay
         />
         <div
           className={clsx("leading-none relative", {
