@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { memo, FC } from "react";
-
 import Vimeo from "@u-wave/react-vimeo";
+
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
 import { PageTitle } from "../../common/Title/PageTitle";
 
