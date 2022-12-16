@@ -16,6 +16,7 @@ const ServicesSectionComponent: FC = () => {
             key={service.attributes.title}
             data={service.attributes.description}
             title={service.attributes.title}
+            context="service"
           />
         );
       })}

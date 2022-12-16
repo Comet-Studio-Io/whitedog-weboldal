@@ -106,6 +106,7 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
                     dark={false}
                     data={service.description}
                     title={service.title}
+                    context="project"
                   />
                 );
               })}

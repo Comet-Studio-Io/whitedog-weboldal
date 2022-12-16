@@ -17,6 +17,7 @@ const OpenPositionsSectionComponent: FC = () => {
             dark={false}
             data={service.attributes.description}
             title={service.attributes.title}
+            context="service"
           />
         );
       })}

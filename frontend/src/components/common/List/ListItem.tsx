@@ -6,9 +6,15 @@ interface ListItemTypes {
   title: string;
   data: string;
   dark?: boolean;
+  context: string;
 }
 
-const ListItemComponent: FC<ListItemTypes> = ({ title, data, dark = true }) => {
+const ListItemComponent: FC<ListItemTypes> = ({
+  title,
+  data,
+  context,
+  dark = true,
+}) => {
   const textContainerRef = useRef<HTMLSpanElement>(null);
   const [isActive, setIsActive] = useState(false);
 
@@ -19,11 +25,21 @@ const ListItemComponent: FC<ListItemTypes> = ({ title, data, dark = true }) => {
 
       if (
         distanceToTop !== undefined &&
-        textContainerRef.current?.clientHeight !== undefined
+        textContainerRef.current?.clientHeight !== undefined &&
+        context === "service"
       ) {
         if (
           distanceToTop > window.innerHeight / 2 - 80 &&
           distanceToTop < window.innerHeight / 2
+        ) {
+          setIsActive(true);
+        } else {
+          setIsActive(false);
+        }
+      } else {
+        if (
+          distanceToTop > window.innerHeight / 2 - window.innerHeight &&
+          distanceToTop < window.innerHeight / 2 + 80
         ) {
           setIsActive(true);
         } else {
