@@ -16,6 +16,7 @@
     "@chakra-ui/react": "^2.3.4",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+    "@u-wave/react-vimeo": "^0.9.10",
     "axios": "^1.1.2",
     "clsx": "^1.2.1",
     "framer-motion": "^7.3.6",

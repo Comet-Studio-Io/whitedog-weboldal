@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { memo, FC } from "react";
 
+import Vimeo from "@u-wave/react-vimeo";
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
 import { PageTitle } from "../../common/Title/PageTitle";
 
@@ -10,6 +11,12 @@ const HeroSectionComponent: FC = (): JSX.Element => {
   return (
     <div className={clsx("w-full flex flex-col height header")}>
       <div className={clsx("w-full flex flex-col")}>
+        <Vimeo
+          video="https://vimeo.com/721417008"
+          responsive={true}
+          controls={false}
+          autoplay={true}
+        />
         <div
           className={clsx("leading-none relative", {
             "flex flex-col justify-end mx-2 bottom-4 min-h-[95vh]":

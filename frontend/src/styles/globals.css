@@ -20,11 +20,6 @@ html {
 
 .header {
   display: flex;
-  background-image: url(/images/hero.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 720px;
   flex-direction: column-reverse;
   padding-bottom: 3rem;
 }
