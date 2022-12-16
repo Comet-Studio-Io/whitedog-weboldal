@@ -30,11 +30,11 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
               const {
                 title,
                 project_detail: detail,
-
                 project_filter: filter,
                 featured_image: image,
                 project_categories: tags,
               } = project.attributes;
+
               return (
                 <ProjectWrapItem
                   width="100%"
