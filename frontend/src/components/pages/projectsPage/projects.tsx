@@ -48,7 +48,6 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
                   tagArray={tags.data}
                   title={title}
                   URL={detail?.data?.attributes?.URL}
-                  videoURL={detail?.data?.attributes?.video_url}
                 />
               );
             })}
