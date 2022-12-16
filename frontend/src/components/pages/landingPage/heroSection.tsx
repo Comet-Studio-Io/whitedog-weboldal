@@ -12,6 +12,7 @@ const HeroSectionComponent: FC = (): JSX.Element => {
     <div className={clsx("w-full flex flex-col height header")}>
       <div className={clsx("w-full flex flex-col")}>
         <Vimeo
+          id="hero_video"
           video="https://vimeo.com/721417008"
           responsive
           controls={false}

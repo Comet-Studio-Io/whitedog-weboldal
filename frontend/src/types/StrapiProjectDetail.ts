@@ -7,6 +7,7 @@ export interface StrapiProjectDetail {
       createdAt: string;
       updatedAt: string;
       publishedAt: string;
+      videoURL: string;
     };
     id: number;
   };

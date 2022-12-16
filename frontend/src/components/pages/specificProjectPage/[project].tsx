@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { memo, FC, useEffect, useState } from "react";
+import Vimeo from "@u-wave/react-vimeo";
 
 import { useGetProject } from "../../../hooks/useGetProject";
 import { useGetUserAgent } from "../../../hooks/useGetUserAgent";
@@ -34,7 +35,6 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
 
   const deviceState = useGetUserAgent();
   const projectData = data?.attributes;
-
   const [currentProjectData, setCurrentProjectData] =
     useState<StrapiProjectGridItem>();
 
@@ -60,6 +60,18 @@ const SpecificProjectPageComponent: FC = (): JSX.Element => {
               className="text-white pt-4 pb-8"
               text={projectData.company}
             />
+            {projectData?.video_url !== null && (
+              <Vimeo
+                id={projectData?.video_url}
+                video={projectData?.video_url}
+                className="vimeo"
+                responsive
+                controls={false}
+                autoplay
+                loop
+                muted
+              />
+            )}
             {deviceState === "mobile" ? (
               <ProjectGrid
                 columns={5}

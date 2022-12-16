@@ -18,6 +18,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.vimeo {
+  padding-bottom: 3rem;
+}
+
 .header {
   display: flex;
   flex-direction: column-reverse;

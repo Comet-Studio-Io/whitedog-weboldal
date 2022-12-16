@@ -1,3 +1,4 @@
+import Vimeo from "@u-wave/react-vimeo";
 import { WrapItem } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -22,6 +23,7 @@ interface ProjectWrapItemTypes {
   tagArray?: StrapiCategory["data"];
   filterType?: ProjectFilterTypes;
   URL?: string;
+  videoURL?: string;
 }
 
 const ProjectWrapItemComponent: FC<ProjectWrapItemTypes> = ({
@@ -36,6 +38,7 @@ const ProjectWrapItemComponent: FC<ProjectWrapItemTypes> = ({
   filterType,
   width,
   URL,
+  videoURL,
 }) => {
   const router = useRouter();
   const handleProjectClick = useCallback(() => {

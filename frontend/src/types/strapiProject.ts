@@ -1,11 +1,13 @@
 import { StrapiImage } from "./strapiImage";
 import { StrapiListItem } from "./strapiListItem";
+import { StrapiProjectDetail } from "./StrapiProjectDetail";
 import { StrapiProjectGridItem } from "./strapiProjectGridItem";
 
 export interface StrapiProject {
   URL: string;
   company: string;
   title: string;
+  video_url: string;
   project: {
     data: {
       attributes: StrapiProjectGridItem;
@@ -20,6 +22,5 @@ export interface StrapiProject {
     id: number;
     featured_image: StrapiImage;
   }>;
-
   services: StrapiListItem[];
 }

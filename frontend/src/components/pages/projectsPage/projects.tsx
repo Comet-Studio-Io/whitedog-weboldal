@@ -16,7 +16,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
   const deviceState = useGetUserAgent();
 
   const { data, status } = useGetProjects();
-
+  console.log("cica", data);
   return (
     <section
       className={"w-full h-auto flex flex-col md:px-8 px-2 pb-6 md:pb-12"}
@@ -36,7 +36,6 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
                 featured_image: image,
                 project_categories: tags,
               } = project.attributes;
-
               return (
                 <ProjectWrapItem
                   width="100%"
@@ -49,6 +48,7 @@ const ProjectsPageComponent: FC = (): JSX.Element => {
                   tagArray={tags.data}
                   title={title}
                   URL={detail?.data?.attributes?.URL}
+                  videoURL={detail?.data?.attributes?.video_url}
                 />
               );
             })}
