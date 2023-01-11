@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Oracle";
-  src: url("../../public/fonts/ABC\ Oracle/ABCOracle-Book-Trial.woff");
+  font-family: "Circular";
+  src: url("../../public/fonts/Circular\ Font/CircularXX-Regular.otf");
 }
 
 html,
@@ -30,7 +30,7 @@ html {
 
 * {
   box-sizing: border-box;
-  font-family: "Oracle";
+  font-family: "Circular";
 }
 
 .button-component {
