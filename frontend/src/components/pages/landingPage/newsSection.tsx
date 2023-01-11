@@ -34,7 +34,7 @@ const NewsSectionComponent: FC = () => {
         ref={containerRef}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...events}
-        className={clsx("w-full flex flex-row md:px-7 px-2", {
+        className={clsx("w-full flex flex-row", {
           "overflow-x-hidden": userAgent === "desktop",
           "overflow-x-auto": userAgent === "mobile",
         })}
